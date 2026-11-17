@@ -1,0 +1,28 @@
+{
+  "hesap": "gecirgenbagirsak",
+  "karusel": {
+    "slides": [
+      {"tip": "kapak", "foto": 6080984, "odak": 0.2, "baslik": "Bağırsağın yardım istiyor olabilir: 5 işaret", "alt": "Çoğu kişi bunları \"normal\" sanıp yıllarca geçiştiriyor."},
+      {"no": 1, "foto": 2493327, "odak": 0.3, "baslik": "Bitmeyen şişkinlik", "metin": "Az yemene rağmen akşama doğru karnın balon gibi oluyorsa sindirim düzenin dengeyi kaybetmiş olabilir."},
+      {"no": 2, "foto": 1850268, "odak": 0.2, "baslik": "Yemekten sonra çöken enerji", "metin": "Öğünden sonra gelen ağırlık, uyku hali ve odaklanamama bağırsak kaynaklı olabilir."},
+      {"no": 3, "foto": 3805349, "odak": 0.2, "baslik": "Ciltte inatçı sorunlar", "metin": "Sivilce, kızarıklık, egzama alevlenmeleri... Bağırsak ile cilt arasındaki bağ uzun süredir araştırılıyor."},
+      {"no": 4, "foto": 1851143, "odak": 0.3, "baslik": "Artan gıda hassasiyeti", "metin": "Eskiden rahatça yediğin besinler artık seni rahatsız ediyorsa bu bir sinyal olabilir."},
+      {"no": 5, "foto": 4941765, "odak": 0.3, "baslik": "Düzensiz tuvalet alışkanlığı", "metin": "Kabızlık ile ishal arasında gidip gelen bir düzen flora dengesizliğine işaret edebilir."},
+      {"foto": 1085063, "odak": 0.3, "baslik": "Peki nereden başlamalı?", "metin": "Lifli besinler · Kefir, ev yoğurdu, turşu · Daha az şeker ve işlenmiş gıda · Düzenli uyku"},
+      {"tip": "cta", "foto": 5678998, "odak": 0.15, "baslik": "Bu işaretlerden hangileri sende var?", "metin": "Yorumlarda paylaşabilirsin. Sana uygun bir yol haritası için ekibimiz yardımcı olmaya hazır.", "buton": "Detaylı bilgi için DM'den ulaşın", "not": "Bu içerik bilgilendirme amaçlıdır."}
+    ],
+    "aciklama": "Bağırsağın sana sinyal veriyor olabilir 👇\n\nŞişkinlik, yemek sonrası çöken enerji, ciltteki inatçı sorunlar... Çoğumuz bunları \"normal\" sanıp yıllarca geçiştiriyoruz.\n\nKaydırarak 5 işareti oku, hangilerinin sende olduğunu yorumlarda paylaş 👇\n\nDetaylı bilgi için DM üzerinden bize ulaşabilirsiniz 💬\n\n📌 Kaydet, sonra tekrar bak.\n\n#geçirgenbağırsak #bağırsaksağlığı #şişkinlik #probiyotik #sindirim #bağırsakflorası #sağlıklıyaşam #doğalçözümler #fermentegıda #beslenme"
+  },
+  "reel": {
+    "sahneler": [
+      {"video": [168342, 349469], "baslik": "Sürekli şişkinlik ve yorgunluk mu?", "ses": "Sürekli şişkinlik, yorgunluk, cilt sorunları... Sebebi bağırsağın olabilir."},
+      {"video": 94791, "ses": "Bağırsak duvarın aslında bir elek gibi çalışıyor."},
+      {"video": 81025, "ses": "Normalde sadece besinleri içeri alır, zararlıları dışarıda tutar."},
+      {"video": [44637, 79170], "ses": "Ama yoğun stres, şekerli ve işlenmiş beslenme, sık antibiyotik bu eleği gevşetebilir."},
+      {"video": 356885, "x": 0.8, "ses": "İyi haber şu: bağırsak duvarı, kendini sürekli yenileyen bir doku."},
+      {"video": [61678, 71125], "ses": "Lifli beslenme, fermente gıdalar ve bütirat bu yenilenmeyi destekler."},
+      {"video": 208770, "kapanis": {"ust": "Detaylı bilgi için", "ana": "DM üzerinden bize ulaşın"}, "ses": "Detaylı bilgi almak istersen, DM üzerinden bize ulaşabilirsin. Sana uygun yol haritasını birlikte çıkaralım."}
+    ],
+    "aciklama": "Sürekli şişkinlik ve yorgunluk mu? Sebebi bağırsak duvarın olabilir 🤔\n\nBağırsak duvarın bir elek gibi çalışıyor. Stres, şeker ve işlenmiş gıdalar bu eleği gevşetebiliyor.\n\nİyi haber: bağırsak duvarı kendini sürekli yenileyen bir doku. Doğru beslenme ve doğru destekle bu süreci desteklemek mümkün.\n\nDetaylı bilgi için DM üzerinden bize ulaşabilirsiniz 💬\n\n#geçirgenbağırsak #bağırsaksağlığı #bütirat #probiyotik #şişkinlik #sindirim #sağlıklıyaşam #doğalçözümler"
+  }
+}
