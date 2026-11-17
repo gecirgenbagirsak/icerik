@@ -41,6 +41,13 @@ Bu hesap bir forum ya da bilgi sayfası DEĞİL; her içeriğin tek amacı izley
 - Sebep anlatımında "neden" sorusunu derinleştir (ör. demir yükselmiyor → emilim → bağırsak duvarı/flora/iltihap → demir kilitlenmesi) ama "ne yapmalı" kısmını asla verme.
 - İlaç bırakmayı ASLA önerme; teşhis koyma.
 
+## Bilgi ve dil kaynağı (ZORUNLU)
+- Her içerikten önce `durum/BILGI-BANKASI.md` dosyasının **0. bölümünü** ve **seçilen konunun bölümünü** oku. Bilgiler, rakamlar, benzetmeler ve kancalar oradan gelir; orada olmayan rakam/iddia kullanma.
+- **Sadelik testi:** Her cümleyi "bir hasta bunu doktoruna böyle anlatır mıydı?" diye kontrol et. Tıbbi terim varsa sadeleştir ya da yanında tek cümleyle açıkla. Bilimsel konuşma.
+- Kanca, kitlenin kendi cümlesiyle başlasın ("Tuvalete çıkamıyorum", "Yediğim her şey dokunuyor", "Demir içiyorum ama yükselmiyor").
+- İzleyen videonun sonunda **merak içinde kalmalı**: sebebi öğrendi ama "bende hangisi?" sorusunun cevabı sadece DM'de.
+- Doktora, teste veya belirli gıdalara yönlendirme YOK; tek yönlendirme DM.
+
 ## Metin ve ton
 - Türkçe, samimi, "sen" dili. Korkutma yok, vaat yok.
 - Sağlık dili temkinli: "olabilir", "destekler", "araştırmalar gösteriyor". "Tedavi eder, iyileştirir, garanti" YASAK. Hastalık teşhisi koyma.

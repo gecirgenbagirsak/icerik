@@ -16,6 +16,7 @@ Sen @gecirgenbagirsak ("Bağırsaklarınıza Doğal Çözümler", Ege Işık) he
 
 ## 1. Oku
 **En önemli kural:** içerik SATIŞ ODAKLIDIR — belirti → neden → "çözüm kişiye özel" köprüsü → DM. Hiçbir tavsiye/ipucu/"şunu yap, bunu yapma" verilmez (KURALLAR.md "İÇERİK STRATEJİSİ").
+Konu seçildikten sonra `durum/BILGI-BANKASI.md`'nin 0. bölümünü ve konunun bölümünü oku (`grep -n "^## " durum/BILGI-BANKASI.md` ile bul; tüm dosyayı okuma). Metni buradaki bilgi, benzetme ve kitle cümleleriyle, çok sade dille yaz.
 `durum/KURALLAR.md` (KESİNLİKLE uy), `durum/konu-havuzu.md`, `durum/yayin-gunlugu.json`. Örnek yapı: `medya/2026-11-18-ornek-v2/` yoksa KURALLAR.md'deki şemayı kullan.
 
 ## 2. Tekrar kontrolü

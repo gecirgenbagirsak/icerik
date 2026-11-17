@@ -3,6 +3,20 @@
 Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmamış** bir konu seçer (K = karusel, R = reels).
 **Her konu "belirti → NEDEN oluyor → çözüm kişiye özel → DM" çizgisinde işlenir. Hiçbir konuda tavsiye/ipucu/yapılacaklar listesi verilmez** (bkz. KURALLAR.md "İÇERİK STRATEJİSİ"). Havuz azalınca aynı mantıkla yeni "neden" konuları üretip buraya ekle.
 
+## Kitlenin kendi cümlesiyle (öncelikli — en çok dokunan kancalar)
+- R: "3 gündür tuvalete çıkamadım" — bağırsak tembel değil, aç olabilir (BİLGİ §1)
+- K: "Lif de yedim su da içtim, yine gidemiyorum": kabızlığın gözden kaçan 4 sebebi (BİLGİ §1)
+- R: "Yediğim her şey dokunuyor" — yemekten hemen sonra tuvalete koşmanın sebebi (BİLGİ §2)
+- K: Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep (BİLGİ §2)
+- R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3)
+- R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4)
+- K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6)
+- R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6)
+- R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7)
+- K: "Her kremi denedim, sivilcem geçmiyor": cilt neden bağırsağın aynası (BİLGİ §8)
+- R: Mutluluk maddesinin %90'ı nerede üretiliyor? (BİLGİ §7)
+- R: "Tahlillerim temiz ama şikâyetim geçmiyor" (BİLGİ §11)
+
 ## Demir eksikliği (en çok ilgi)
 - K: Demir eksikliğinin gözden kaçan 6 belirtisi (saç dökülmesi, tırnak kırılması, buz yeme isteği, nefes darlığı, soğuk eller, halsizlik) → hepsinin ortak kaynağı → DM
 - R: "Demir ilacı kullanıyorum ama yükselmiyor" — sorun alımda değil emilimde olabilir ✅ (17.11.2026 akşam)
