@@ -48,7 +48,8 @@ def api(yol, veri=None, yontem=None, deneme=4):
     for i in range(deneme):
         req = urllib.request.Request(url, data=govde, method=yontem or ("POST" if govde else "GET"), headers={
             "Authorization": f"Bearer {token()}", "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "icerik-motoru"})
+            "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "icerik-motoru",
+            "Content-Type": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=300) as r:
                 return json.loads(r.read() or b"{}")
