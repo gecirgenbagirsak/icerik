@@ -4,7 +4,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 
 ## Demir eksikliği (en çok ilgi)
 - K: Demir eksikliğinin gözden kaçan 6 belirtisi (saç dökülmesi, tırnak kırılması, buz yeme isteği, nefes darlığı, soğuk eller, halsizlik)
-- R: "Demir ilacı kullanıyorum ama yükselmiyor" — sorun alımda değil emilimde olabilir
+- R: "Demir ilacı kullanıyorum ama yükselmiyor" — sorun alımda değil emilimde olabilir ✅ (17.11.2026 akşam)
 - K: Ferritin ile hemoglobin arasındaki fark (sade anlatım)
 - R: Demir emilimini engelleyen 4 alışkanlık (yemekle çay/kahve, mide ilacı, kalsiyumla birlikte alma, bozuk flora)
 - K: Laktoferrin nedir? Demiri taşıyan doğal protein (5 slayt)

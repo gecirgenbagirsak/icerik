@@ -50,5 +50,24 @@
     "youtube": "https://youtube.com/shorts/ZQE98j8r98E",
     "instagram": null,
     "not": "Bulut testi: GitHub erişimi kapalı olduğu için Instagram paylaşılamadı, sadece YouTube."
+  },
+  {
+    "tarih": "2026-11-17",
+    "slot": "aksam",
+    "format": "reels",
+    "konu": "Demir ilacı kullanıyorum ama yükselmiyor — sorun emilimde olabilir",
+    "klasor": "medya/2026-11-17-aksam",
+    "pixabay": [
+      83875,
+      233390,
+      57049,
+      78736,
+      46989,
+      61682,
+      11604,
+      83870
+    ],
+    "instagram": null,
+    "youtube": null
   }
 ]
