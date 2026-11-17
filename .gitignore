@@ -1,0 +1,7 @@
+# Gizli dosyalar asla yüklenmez
+*token*
+*anahtar*
+*client*.json
+*secret*
+*.txt
+_tmp/
