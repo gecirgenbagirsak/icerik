@@ -133,9 +133,21 @@ def main():
     eski_temizle()
     dosyalar = degisenler()
     if dosyalar:
-        sha = api_gonder(dosyalar, f"icerik: {ad}")
-        print(f"GitHub'a gönderildi: {len(dosyalar)} dosya, commit {sha[:7]}")
-        yerel_esitle()
+        try:
+            sha = api_gonder(dosyalar, f"icerik: {ad}")
+            print(f"GitHub'a gönderildi (API): {len(dosyalar)} dosya, commit {sha[:7]}")
+            yerel_esitle()
+        except RuntimeError as e:
+            # Yedek yol: bulut oturumunda depo kaynak olarak bağlıysa proxy git push'a kimlik ekler
+            print("API başarısız, git push deneniyor:", str(e)[:200])
+            try:
+                git("config", "user.name", "gecirgenbagirsak")
+                git("config", "user.email", "gecirgenbagirsak@users.noreply.github.com")
+                git("commit", "-q", "-m", f"icerik: {ad}")
+                git("push", "-q", "origin", "HEAD:main")
+                print("GitHub'a gönderildi (git push)")
+            except RuntimeError as e2:
+                sys.exit(f"GitHub'a gönderilemedi: {e2}")
 
     karusel = sorted(klasor.glob("karusel_*.jpg"))
     sonuc = {"klasor": ad,
