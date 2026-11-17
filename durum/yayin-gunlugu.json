@@ -5,7 +5,16 @@
     "format": "karusel",
     "konu": "Bağırsağın yardım istiyor olabilir: 5 işaret",
     "klasor": "icerik/2026-11-18-ornek-v2",
-    "pixabay": [6080984, 2493327, 1850268, 3805349, 1851143, 4941765, 1085063, 5678998],
+    "pixabay": [
+      6080984,
+      2493327,
+      1850268,
+      3805349,
+      1851143,
+      4941765,
+      1085063,
+      5678998
+    ],
     "instagram": "https://www.instagram.com/p/Df2PDGCjWK0/"
   },
   {
@@ -14,8 +23,32 @@
     "format": "reels",
     "konu": "Bağırsak duvarı neden geçirgen olur?",
     "klasor": "icerik/2026-11-18-ornek-v2",
-    "pixabay": [168342, 349469, 94791, 81025, 44637, 79170, 356885, 61678, 71125, 208770],
+    "pixabay": [
+      168342,
+      349469,
+      94791,
+      81025,
+      44637,
+      79170,
+      356885,
+      61678,
+      71125,
+      208770
+    ],
     "youtube": "https://youtube.com/shorts/PamQRSP3Xaw",
     "not": "YouTube'a private test olarak yüklendi, kullanıcı herkese açtı. Instagram'da reels olarak paylaşılmadı."
+  },
+  {
+    "tarih": "2026-11-17",
+    "slot": "aksam",
+    "format": "reels",
+    "konu": "Akşam olunca karnın neden balon gibi şişiyor?",
+    "klasor": "medya/2026-11-17-aksam (bulutta kaldı)",
+    "pixabay": [
+      61699
+    ],
+    "youtube": "https://youtube.com/shorts/ZQE98j8r98E",
+    "instagram": null,
+    "not": "Bulut testi: GitHub erişimi kapalı olduğu için Instagram paylaşılamadı, sadece YouTube."
   }
 ]

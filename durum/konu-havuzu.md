@@ -1,4 +1,4 @@
-# Konu havuzu
+﻿# Konu havuzu
 
 Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmamış** bir konu seçer (format: K = karusel, R = reels; ikisine de uygun olanlar K/R). Havuz azalınca bilgi dosyalarından yeni konular üretip buraya eklenir.
 
@@ -13,7 +13,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 ## Şişkinlik ve sindirim
 - K: Bağırsağın yardım istiyor olabilir: 5 işaret ✅ (17.11.2026 kullanıldı)
 - R: Bağırsak duvarı neden geçirgen olur? ✅ (17.11.2026 YouTube'a yüklendi)
-- R: Akşam olunca karnın neden balon gibi şişiyor?
+- R: Akşam olunca karnın neden balon gibi şişiyor? ✅ (17.11.2026 YouTube)
 - K: Şişkinliği artıran 5 gündelik alışkanlık (hızlı yemek, gazlı içecek, sakız, geç akşam yemeği, stres)
 - R: Kabızlık ile ishal arasında gidip gelmek ne anlatıyor?
 - K: Bağırsak dostu bir gün nasıl görünür? (sabahtan akşama 6 adım)
