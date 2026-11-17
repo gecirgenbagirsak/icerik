@@ -30,6 +30,17 @@ ChatPlace/Virale AI üretim araçları (virale_*_generate, montage, carousel_gen
 - Aynı Pixabay ID'sini son 14 günde kullanma (yayin-gunlugu.json'a bak).
 - Videoda yüz kırpılıyorsa sahneye `"x": 0..1` ver (yatay kırpma noktası); karuselde `"odak": 0..1` (dikey).
 
+## İÇERİK STRATEJİSİ — SATIŞ ODAKLI (kullanıcının kesin talimatı, 17.11.2026)
+Bu hesap bir forum ya da bilgi sayfası DEĞİL; her içeriğin tek amacı izleyenin **DM'den bize ulaşmasıdır**.
+- Akış her zaman: **belirti / problem** (izleyen kendini görsün) → **neden oluyor** (kaynağı, mekanizması, sade dille) → **köprü** (çözüm kişiye göre değişir, sebebini bilmek yetmez, doğru adımı birlikte belirlemek gerekir) → **CTA: DM**.
+- **ÇÖZÜM, TAVSİYE, İPUCU VERME.** YASAK örnekler: "çaya ara ver", "kahveyi azalt", "yemeği yavaş ye", "lifli beslen", "kefir iç", "şekeri azalt", "uykuna dikkat et", "şu besinleri tüket", "X yap / Y yapma" listeleri. "Peki ne yapmalı / nereden başlamalı" slaytında bile ipucu listesi YOK.
+- Çözüm kısmı her zaman açık bırakılır ve DM'ye bağlanır. Köprü örnekleri:
+  - "Bunun sebebi herkeste farklı. Sende hangisi olduğunu birlikte bakalım."
+  - "Sebebini bilmek ilk adım. Sana uygun yolu birlikte belirleyelim."
+  - "Bu döngüyü kırmanın yolu kişiye özel. Detaylar için bize ulaş."
+- Sebep anlatımında "neden" sorusunu derinleştir (ör. demir yükselmiyor → emilim → bağırsak duvarı/flora/iltihap → demir kilitlenmesi) ama "ne yapmalı" kısmını asla verme.
+- İlaç bırakmayı ASLA önerme; teşhis koyma.
+
 ## Metin ve ton
 - Türkçe, samimi, "sen" dili. Korkutma yok, vaat yok.
 - Sağlık dili temkinli: "olabilir", "destekler", "araştırmalar gösteriyor". "Tedavi eder, iyileştirir, garanti" YASAK. Hastalık teşhisi koyma.
@@ -37,15 +48,17 @@ ChatPlace/Virale AI üretim araçları (virale_*_generate, montage, carousel_gen
 - **CTA:** "DM'den yaz" KULLANMA. Kullan: "Detaylı bilgi için DM üzerinden bize ulaşın" / "Detaylı bilgi almak istersen DM üzerinden bize ulaşabilirsin".
 - Karusel son slayt: `tip: cta`, `buton: "Detaylı bilgi için DM'den ulaşın"`, `not: "Bu içerik bilgilendirme amaçlıdır."`
 - Reel son sahne: `kapanis: {"ust": "Detaylı bilgi için", "ana": "DM üzerinden bize ulaşın"}` (altyazı otomatik kapanır).
-- Açıklama (caption): kanca cümle + 2-3 kısa paragraf + "Detaylı bilgi için DM üzerinden bize ulaşabilirsiniz 💬" + 8-10 Türkçe hashtag. Emoji ölçülü.
+- Açıklama (caption): kanca cümle (belirti/soru) + 1-2 kısa paragraf SEBEP + köprü cümlesi ("Sende neden kaynaklandığını birlikte netleştirelim.") + "Detaylı bilgi için DM üzerinden bize ulaşabilirsiniz 💬" + 8-10 Türkçe hashtag. Açıklamada da tavsiye/ipucu YOK. Emoji ölçülü.
 
 ## Karusel (öğlen)
-- 6-8 slayt, 1080×1350. Kapak (`tip: kapak`, güçlü kanca) → maddeler → (opsiyonel "Peki ne yapmalı?") → CTA.
+- 6-8 slayt, 1080×1350. Kapak (`tip: kapak`, güçlü kanca) → belirtiler veya sebepler (numaralı) → **köprü slaytı** (numarasız; başlık örn. "Sebebi herkeste farklı", metin: çözümün kişiye özel olduğu, birlikte bakmak gerektiği — tavsiye listesi YOK) → CTA.
+- CTA slaytı metni örn.: "Bu işaretlerden hangileri sende var? Sende neden kaynaklandığını birlikte netleştirelim."
 - **Sayfa numarası yok.** Madde numarası (`no`) sadece başlıktaki listeyle birebir (ör. "5 işaret" → 1..5). Kapak/öneri/CTA slaytlarında `no` yok.
 - Madde metni en fazla ~140 karakter; başlık kısa.
 
 ## Reels (akşam)
 - 6-8 sahne, toplam 30-45 sn. İlk sahne kanca + `baslik` (üstte turuncu kutu, kısa soru). Her sahne 1 cümle seslendirme.
+- Sahne akışı: belirti (1-2 sahne) → sebep/mekanizma (3-4 sahne) → köprü (1 sahne: "Bunun sebebi herkeste farklı; sende neyden kaynaklandığını birlikte bulalım.") → kapanış kartı (seslendirme: "Detaylı bilgi almak istersen DM üzerinden bize ulaşabilirsin."). Çözüm/ipucu sahnesi YOK.
 - Her sahneye konuya uyan 1-2 Pixabay video klibi (`video: id` veya `[id, id]`).
 - Dosya ≤ 20 MB (uret.py zaten sınırlıyor).
 - YouTube başlığı: ≤ 90 karakter, sonunda ` #Shorts`. Açıklama = reel_aciklama.txt.

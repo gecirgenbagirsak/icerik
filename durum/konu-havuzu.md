@@ -1,48 +1,49 @@
 ﻿# Konu havuzu
 
-Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmamış** bir konu seçer (format: K = karusel, R = reels; ikisine de uygun olanlar K/R). Havuz azalınca bilgi dosyalarından yeni konular üretip buraya eklenir.
+Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmamış** bir konu seçer (K = karusel, R = reels).
+**Her konu "belirti → NEDEN oluyor → çözüm kişiye özel → DM" çizgisinde işlenir. Hiçbir konuda tavsiye/ipucu/yapılacaklar listesi verilmez** (bkz. KURALLAR.md "İÇERİK STRATEJİSİ"). Havuz azalınca aynı mantıkla yeni "neden" konuları üretip buraya ekle.
 
 ## Demir eksikliği (en çok ilgi)
-- K: Demir eksikliğinin gözden kaçan 6 belirtisi (saç dökülmesi, tırnak kırılması, buz yeme isteği, nefes darlığı, soğuk eller, halsizlik)
+- K: Demir eksikliğinin gözden kaçan 6 belirtisi (saç dökülmesi, tırnak kırılması, buz yeme isteği, nefes darlığı, soğuk eller, halsizlik) → hepsinin ortak kaynağı → DM
 - R: "Demir ilacı kullanıyorum ama yükselmiyor" — sorun alımda değil emilimde olabilir ✅ (17.11.2026 akşam)
-- K: Ferritin ile hemoglobin arasındaki fark (sade anlatım)
-- R: Demir emilimini engelleyen 4 alışkanlık (yemekle çay/kahve, mide ilacı, kalsiyumla birlikte alma, bozuk flora)
-- K: Laktoferrin nedir? Demiri taşıyan doğal protein (5 slayt)
+- K: Ferritinin neden dolmadığı: 4 gizli sebep (emilim sorunu, bağırsak iltihabı, gizli kayıp, mide asidinin baskılanması)
+- R: Demir yükseliyor sonra tekrar düşüyor: bu döngünün sebebi
+- K: Laktoferrin nedir? Vücudun demiri taşıma sistemi nasıl çalışır, nerede aksar
 - R: Sabah yorgun uyanmanın sebebi düşük ferritin olabilir mi?
 
 ## Şişkinlik ve sindirim
 - K: Bağırsağın yardım istiyor olabilir: 5 işaret ✅ (17.11.2026 kullanıldı)
 - R: Bağırsak duvarı neden geçirgen olur? ✅ (17.11.2026 YouTube'a yüklendi)
 - R: Akşam olunca karnın neden balon gibi şişiyor? ✅ (17.11.2026 YouTube)
-- K: Şişkinliği artıran 5 gündelik alışkanlık (hızlı yemek, gazlı içecek, sakız, geç akşam yemeği, stres)
+- K: Şişkinliğin 5 gizli sebebi (flora dengesizliği, hassaslaşmış bağırsak duvarı, sindirim enzimi yetersizliği, stres–bağırsak ekseni, gıda hassasiyeti)
 - R: Kabızlık ile ishal arasında gidip gelmek ne anlatıyor?
-- K: Bağırsak dostu bir gün nasıl görünür? (sabahtan akşama 6 adım)
+- K: "Her şeyi denedim ama geçmiyor": şikâyetlerin neden geri geldiği
 
 ## Reflü ve mide
 - R: Uzun süre mide ilacı kullanmanın gözden kaçan yanı: emilim
-- K: Reflüyü tetikleyen 5 alışkanlık
+- K: Reflünün sanılmayan 4 kaynağı
 
 ## Cilt – bağırsak ekseni
 - R: Sivilceler geçmiyorsa sebebi bağırsakta olabilir
-- K: Bağırsak ile cilt arasındaki bağ: 4 işaret (akne, egzama, kızarıklık, kuruluk)
+- K: Bağırsak ile cilt arasındaki bağ: 4 işaret (akne, egzama, kızarıklık, kuruluk) ve neden aynı kaynaktan beslenirler
 
 ## Yorgunluk, beyin sisi, ruh hali
 - R: Öğleden sonra çöken enerji: bağırsak bağlantısı
-- K: Serotoninin büyük kısmı bağırsakta üretilir: ruh hali–bağırsak ilişkisi
+- K: Serotoninin büyük kısmı bağırsakta üretilir: ruh hali neden bağırsakla değişir
 - R: Beyin sisi nedir, bağırsakla ne ilgisi var?
 
 ## Flora, Candida, bağışıklık
-- K: Bağırsak florasını bozan 6 şey (sık antibiyotik, şeker, stres, uykusuzluk, işlenmiş gıda, az lif)
+- K: Bağırsak florası neden bozulur: 6 tetikleyici (sık antibiyotik, şeker, stres, uykusuzluk, işlenmiş gıda, az lif) → sende hangisi? → DM
 - R: Tatlı krizleri ve Candida ilişkisi
-- K: Bağışıklığın büyük kısmı bağırsakta: 5 destekleyici alışkanlık
+- K: Sık hastalanıyorsan sebebi bağırsakta olabilir: bağışıklığın %70'i neden bağırsakta
 - R: Antibiyotikten sonra bağırsağına ne olur?
 
-## Bütirat ve lif
-- R: Bütirat nedir? Bağırsak duvarının yakıtı
-- K: Bütirat üretimini destekleyen 6 besin (yulaf, baklagil, soğumuş patates/pirinç, muz, soğan-sarımsak, tam tahıl)
-- R: Lif neden bu kadar önemli? 30 saniyede
+## Bütirat ve bağırsak duvarı
+- R: Bütirat nedir? Bağırsak duvarının yakıtı — eksik olunca ne olur
+- K: Bağırsak duvarı yıprandığında vücudun verdiği 5 sinyal
+- R: Bağırsak duvarı neden kendini yenileyemez hale gelir?
 
-## Beslenme pratik
-- K: Ev yapımı fermente gıdalar: kefir, yoğurt, turşu, boza (5 slayt)
-- R: Bağırsak dostu kahvaltı fikirleri
-- K: Bağırsağı yoran 5 "sağlıklı" sanılan alışkanlık
+## "Neden geçmiyor" serisi (satışa en yakın)
+- K: Probiyotik kullandın ama işe yaramadı mı? 4 olası sebep
+- R: Diyet yapıyorsun ama şişkinlik geçmiyor: sebebi
+- K: Doktora gittin, "tahlillerin temiz" dendi ama şikâyetin sürüyor: neden olabilir

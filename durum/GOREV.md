@@ -15,6 +15,7 @@ Sen @gecirgenbagirsak ("Bağırsaklarınıza Doğal Çözümler", Ege Işık) he
 - Gerekli ortam değişkenleri (bulut): PIXABAY_KEY, GH_TOKEN, YOUTUBE_TOKEN_JSON. Eksikse hangi değişkenin eksik olduğunu raporla ve DUR.
 
 ## 1. Oku
+**En önemli kural:** içerik SATIŞ ODAKLIDIR — belirti → neden → "çözüm kişiye özel" köprüsü → DM. Hiçbir tavsiye/ipucu/"şunu yap, bunu yapma" verilmez (KURALLAR.md "İÇERİK STRATEJİSİ").
 `durum/KURALLAR.md` (KESİNLİKLE uy), `durum/konu-havuzu.md`, `durum/yayin-gunlugu.json`. Örnek yapı: `medya/2026-11-18-ornek-v2/` yoksa KURALLAR.md'deki şemayı kullan.
 
 ## 2. Tekrar kontrolü
@@ -31,7 +32,7 @@ Günlükte bugünün tarihi (Europe/Istanbul) + bu slot + instagram linki varsa 
  "karusel": {"slides": [
     {"tip": "kapak", "foto": 123, "odak": 0.2, "baslik": "...", "alt": "..."},
     {"no": 1, "foto": 123, "odak": 0.3, "baslik": "...", "metin": "..."},
-    {"foto": 123, "baslik": "Peki nereden başlamalı?", "metin": "A · B · C"},
+    {"foto": 123, "baslik": "Sebebi herkeste farklı", "metin": "Aynı şikâyetin arkasında farklı kaynaklar olabilir. Sende hangisi olduğunu birlikte netleştirelim."},
     {"tip": "cta", "foto": 123, "odak": 0.15, "baslik": "...", "metin": "...", "buton": "Detaylı bilgi için DM'den ulaşın", "not": "Bu içerik bilgilendirme amaçlıdır."}],
    "aciklama": "..."},
  "reel": {"sahneler": [
@@ -44,6 +45,7 @@ Günlükte bugünün tarihi (Europe/Istanbul) + bu slot + instagram linki varsa 
 ## 4. Üret ve kontrol et
 - `$PY motor/uret.py medya/<klasör>`
 - Karusel: tüm slaytları ffmpeg ile tek görselde birleştir, aç, kontrol et. Reels: her sahneden 1 kare çıkar, tek görselde birleştir, aç, kontrol et.
+- Metin kontrolü: tüm slayt/sahne metinlerini ve açıklamayı tek tek oku; içinde tavsiye, ipucu, "yap/yapma", "azalt/artır/tüket/kaçın" türü bir öneri varsa çıkar ve yerine sebep anlatımı + DM köprüsü koy.
 - Sorun varsa düzelt ve tekrar üret. 2 denemede düzelmezse YAYINLAMA, günlüğe "hata" kaydı yaz, raporla.
 
 ## 5. Kaydet ve yayınla
