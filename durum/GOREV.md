@@ -1,4 +1,4 @@
-# Günlük içerik görevi (bulut ve yerel ortak talimat)
+﻿# Günlük içerik görevi (bulut ve yerel ortak talimat)
 
 Sen @gecirgenbagirsak ("Bağırsaklarınıza Doğal Çözümler", Ege Işık) hesabının günlük içerik görevisin. Kullanıcı 17.11.2026'da **TAM OTOMATİK** yayına açık onay verdi: kalite kontrolünü geçen içeriği sormadan paylaş. Raporları **Türkçe** yaz.
 
@@ -8,7 +8,10 @@ Sen @gecirgenbagirsak ("Bağırsaklarınıza Doğal Çözümler", Ege Işık) he
 
 ## 0. Hazırlık
 - `git pull -q` (yerelde) — en güncel durum dosyalarını al. Bulutta depo zaten güncel klonlanır.
-- Bulutta araçlar eksikse kur: `which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)`; `python3 -c "import PIL, edge_tts, googleapiclient, google_auth_oauthlib" || pip install -q pillow edge-tts google-api-python-client google-auth-oauthlib`.
+- Bulutta: sistem Pillow'u bozuk, mutlaka TEMİZ venv kullan ve tüm python komutlarını onunla çalıştır:
+  `python3 -m venv /tmp/venv && /tmp/venv/bin/pip install -q pillow edge-tts google-api-python-client google-auth-oauthlib && export PY=/tmp/venv/bin/python`
+  ffmpeg yoksa: `sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg`. (uret.py proxy sertifikasını kendisi ayarlar.)
+- GitHub'a gönderimi SADECE `motor/yayinla.py` yapar (GitHub API ile). `git push` KULLANMA — bulut proxy'si engelliyor ve gerek yok. "Unpushed commit" uyarısı gelirse yok say; commit atma.
 - Gerekli ortam değişkenleri (bulut): PIXABAY_KEY, GH_TOKEN, YOUTUBE_TOKEN_JSON. Eksikse hangi değişkenin eksik olduğunu raporla ve DUR.
 
 ## 1. Oku
@@ -20,7 +23,7 @@ Günlükte bugünün tarihi (Europe/Istanbul) + bu slot + instagram linki varsa 
 ## 3. Konu ve içerik
 - Son 30 günde kullanılmamış konu seç (ogle → K, aksam → R; akşam konusu öğlenle aynı olmasın).
 - Klasör: `medya/<YYYY-MM-DD>-<slot>/icerik.json`. ogle: sadece "hesap" + "karusel"; aksam: sadece "hesap" + "reel".
-- Pixabay: `python3 motor/medya.py ara foto|video "<ingilizce sorgu>" /tmp/onizleme.jpg` → önizlemeyi aç → ID seç. Son 14 günün ID'lerini kullanma.
+- Pixabay: `$PY motor/medya.py ara foto|video "<ingilizce sorgu>" /tmp/onizleme.jpg` → önizlemeyi aç → ID seç. Son 14 günün ID'lerini kullanma.
 
 ### icerik.json şeması
 ```json
@@ -39,19 +42,19 @@ Günlükte bugünün tarihi (Europe/Istanbul) + bu slot + instagram linki varsa 
 ```
 
 ## 4. Üret ve kontrol et
-- `python3 motor/uret.py medya/<klasör>`
+- `$PY motor/uret.py medya/<klasör>`
 - Karusel: tüm slaytları ffmpeg ile tek görselde birleştir, aç, kontrol et. Reels: her sahneden 1 kare çıkar, tek görselde birleştir, aç, kontrol et.
 - Sorun varsa düzelt ve tekrar üret. 2 denemede düzelmezse YAYINLAMA, günlüğe "hata" kaydı yaz, raporla.
 
 ## 5. Kaydet ve yayınla
 1. `durum/yayin-gunlugu.json`'a kaydı ekle (tarih, slot, format, konu, klasor, pixabay ID'leri; linkler boş) ve `durum/konu-havuzu.md`'de konuyu ✅ (tarih) ile işaretle.
-2. `python3 motor/yayinla.py medya/<klasör>` → son satırdaki JSON'dan URL'leri al. (Medya + durum GitHub'a gider.)
+2. `$PY motor/yayinla.py medya/<klasör>` → son satırdaki JSON'dan URL'leri al. (Medya + durum GitHub'a gider.)
 3. Instagram: ChatPlace aracı `virale_publish_content` — botId `01a1caef-0eda-7327-b1c8-4ff3afb8f256`, idempotencyKey `ig-<klasör>`.
    - ogle: publishType "carousel", carouselItems = karusel URL'leri sırayla, caption = karusel_aciklama.txt.
    - aksam: publishType "reel", videoUrl = reel URL, coverUrl = kapak URL, caption = reel_aciklama.txt.
    - `virale_publication_status` ile "published" olana kadar 30-60 sn aralıkla kontrol et. failed + submittedAt boş → AYNI key ile tekrar dene. timeout → ASLA tekrar deneme, raporla.
-4. aksam ise YouTube: `python3 motor/youtube.py yukle medya/<klasör>/reel.mp4 --baslik "<≤90 karakter> #Shorts" --aciklama-dosyasi medya/<klasör>/reel_aciklama.txt --etiketler "<5-8 etiket>" --gizlilik public`. Oturum hatası olursa YouTube'u atla ve raporla. Instagram başarısız olsa bile YouTube'u dene (ve tersi).
-5. Günlükteki kayda instagram permalink ve youtube linkini yaz, sonra tekrar `python3 motor/yayinla.py medya/<klasör>` çalıştır (durum dosyası GitHub'a gider).
+4. aksam ise YouTube: `$PY motor/youtube.py yukle medya/<klasör>/reel.mp4 --baslik "<≤90 karakter> #Shorts" --aciklama-dosyasi medya/<klasör>/reel_aciklama.txt --etiketler "<5-8 etiket>" --gizlilik public`. Oturum hatası olursa YouTube'u atla ve raporla. Instagram başarısız olsa bile YouTube'u dene (ve tersi).
+5. Günlükteki kayda instagram permalink ve youtube linkini yaz, sonra tekrar `$PY motor/yayinla.py medya/<klasör>` çalıştır (durum dosyası GitHub'a gider).
 
 ## 6. Rapor
 3-4 satır Türkçe: konu, linkler, varsa sorun.
