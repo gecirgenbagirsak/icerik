@@ -3,5 +3,9 @@
 *anahtar*
 *client*.json
 *secret*
-*.txt
+.env
+# Geçici / önbellek
+cache/
 _tmp/
+__pycache__/
+*_onizleme*.jpg
