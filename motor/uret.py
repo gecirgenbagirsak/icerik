@@ -11,6 +11,7 @@ icerik.json:
 """
 import asyncio
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -166,13 +167,24 @@ def karusel(spec, out: Path, handle):
 
 
 # ---------------------------------------------------------------- REELS
+def _bulut_ssl():
+    """Bulut oturumunda giden HTTPS bir proxy'den geçer; proxy'nin CA sertifikasına güven."""
+    import ssl
+    import edge_tts.communicate as ec
+    ca = "/root/.ccr/ca-bundle.crt"
+    if os.path.exists(ca):
+        ec._SSL_CTX = ssl.create_default_context(cafile=ca)
+    return os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy")
+
+
 async def tts(text, mp3):
     """Seslendirme + kelime zamanlamaları (altyazı için)."""
     import edge_tts
+    proxy = _bulut_ssl()
     for deneme in range(4):
         try:
             words = []
-            c = edge_tts.Communicate(text, SES, rate="+6%", boundary="WordBoundary")
+            c = edge_tts.Communicate(text, SES, rate="+6%", boundary="WordBoundary", proxy=proxy)
             with open(mp3, "wb") as f:
                 async for m in c.stream():
                     if m["type"] == "audio":
