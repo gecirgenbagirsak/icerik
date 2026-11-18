@@ -1,73 +1,90 @@
 [
-  {
-    "tarih": "2026-11-17",
-    "slot": "test",
-    "format": "karusel",
-    "konu": "Bağırsağın yardım istiyor olabilir: 5 işaret",
-    "klasor": "icerik/2026-11-18-ornek-v2",
-    "pixabay": [
-      6080984,
-      2493327,
-      1850268,
-      3805349,
-      1851143,
-      4941765,
-      1085063,
-      5678998
-    ],
-    "instagram": "https://www.instagram.com/p/Df2PDGCjWK0/"
-  },
-  {
-    "tarih": "2026-11-17",
-    "slot": "test",
-    "format": "reels",
-    "konu": "Bağırsak duvarı neden geçirgen olur?",
-    "klasor": "icerik/2026-11-18-ornek-v2",
-    "pixabay": [
-      168342,
-      349469,
-      94791,
-      81025,
-      44637,
-      79170,
-      356885,
-      61678,
-      71125,
-      208770
-    ],
-    "youtube": "https://youtube.com/shorts/PamQRSP3Xaw",
-    "not": "YouTube'a private test olarak yüklendi, kullanıcı herkese açtı. Instagram'da reels olarak paylaşılmadı."
-  },
-  {
-    "tarih": "2026-11-17",
-    "slot": "aksam",
-    "format": "reels",
-    "konu": "Akşam olunca karnın neden balon gibi şişiyor?",
-    "klasor": "medya/2026-11-17-aksam (bulutta kaldı)",
-    "pixabay": [
-      61699
-    ],
-    "youtube": "https://youtube.com/shorts/ZQE98j8r98E",
-    "instagram": null,
-    "not": "Bulut testi: GitHub erişimi kapalı olduğu için Instagram paylaşılamadı, sadece YouTube."
-  },
-  {
-    "tarih": "2026-11-17",
-    "slot": "aksam",
-    "format": "reels",
-    "konu": "Demir ilacı kullanıyorum ama yükselmiyor — sorun emilimde olabilir",
-    "klasor": "medya/2026-11-17-aksam",
-    "pixabay": [
-      83875,
-      233390,
-      57049,
-      78736,
-      46989,
-      61682,
-      11604,
-      83870
-    ],
-    "instagram": "https://www.instagram.com/reel/Df2WWAhiJSu/",
-    "youtube": "https://youtube.com/shorts/9DHCGSQ8qMQ"
-  }
+ {
+  "tarih": "2026-11-17",
+  "slot": "test",
+  "format": "karusel",
+  "konu": "Bağırsağın yardım istiyor olabilir: 5 işaret",
+  "klasor": "icerik/2026-11-18-ornek-v2",
+  "pixabay": [
+   6080984,
+   2493327,
+   1850268,
+   3805349,
+   1851143,
+   4941765,
+   1085063,
+   5678998
+  ],
+  "instagram": "https://www.instagram.com/p/Df2PDGCjWK0/"
+ },
+ {
+  "tarih": "2026-11-17",
+  "slot": "test",
+  "format": "reels",
+  "konu": "Bağırsak duvarı neden geçirgen olur?",
+  "klasor": "icerik/2026-11-18-ornek-v2",
+  "pixabay": [
+   168342,
+   349469,
+   94791,
+   81025,
+   44637,
+   79170,
+   356885,
+   61678,
+   71125,
+   208770
+  ],
+  "youtube": "https://youtube.com/shorts/PamQRSP3Xaw",
+  "not": "YouTube'a private test olarak yüklendi, kullanıcı herkese açtı. Instagram'da reels olarak paylaşılmadı."
+ },
+ {
+  "tarih": "2026-11-17",
+  "slot": "aksam",
+  "format": "reels",
+  "konu": "Akşam olunca karnın neden balon gibi şişiyor?",
+  "klasor": "medya/2026-11-17-aksam (bulutta kaldı)",
+  "pixabay": [
+   61699
+  ],
+  "youtube": "https://youtube.com/shorts/ZQE98j8r98E",
+  "instagram": null,
+  "not": "Bulut testi: GitHub erişimi kapalı olduğu için Instagram paylaşılamadı, sadece YouTube."
+ },
+ {
+  "tarih": "2026-11-17",
+  "slot": "aksam",
+  "format": "reels",
+  "konu": "Demir ilacı kullanıyorum ama yükselmiyor — sorun emilimde olabilir",
+  "klasor": "medya/2026-11-17-aksam",
+  "pixabay": [
+   83875,
+   233390,
+   57049,
+   78736,
+   46989,
+   61682,
+   11604,
+   83870
+  ],
+  "instagram": "https://www.instagram.com/reel/Df2WWAhiJSu/",
+  "youtube": "https://youtube.com/shorts/9DHCGSQ8qMQ"
+ },
+ {
+  "tarih": "2026-11-18",
+  "slot": "ogle",
+  "format": "karusel",
+  "konu": "Lif de yedim su da içtim, yine gidemiyorum: kabızlığın gözden kaçan 4 sebebi",
+  "klasor": "medya/2026-11-18-ogle",
+  "pixabay": [
+   5308379,
+   6059889,
+   2637841,
+   3087585,
+   2385799,
+   5505598,
+   1274056
+  ],
+  "instagram": null
+ }
 ]
