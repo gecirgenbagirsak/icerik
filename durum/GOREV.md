@@ -4,7 +4,7 @@ Sen @gecirgenbagirsak ("Bağırsaklarınıza Doğal Çözümler", Ege Işık) he
 
 Çalışma yeri: `github.com/gecirgenbagirsak/icerik` deposunun kökü. Python komutu Linux'ta `python3`, Windows'ta `py`.
 
-**SLOT**: Görevi başlatan mesaj hangi slotu söylüyorsa o: `ogle` = KARUSEL (sadece Instagram), `aksam` = REELS (Instagram Reels + YouTube Shorts).
+**SLOT**: Görevi başlatan mesaj hangi slotu söylüyorsa o: `ogle` = KARUSEL (Instagram karusel + aynı slaytlardan seslendirmeli YouTube Shorts), `aksam` = REELS (Instagram Reels + YouTube Shorts).
 
 ## 0. Hazırlık
 - `git pull -q` (yerelde) — en güncel durum dosyalarını al. Bulutta depo zaten güncel klonlanır.
@@ -56,7 +56,7 @@ Günlükte bugünün tarihi (Europe/Istanbul) + bu slot + instagram linki varsa 
    - ogle: publishType "carousel", carouselItems = karusel URL'leri sırayla, caption = karusel_aciklama.txt.
    - aksam: publishType "reel", videoUrl = reel URL, coverUrl = kapak URL, caption = reel_aciklama.txt.
    - `virale_publication_status` ile "published" olana kadar 30-60 sn aralıkla kontrol et. failed + submittedAt boş → AYNI key ile tekrar dene. timeout → ASLA tekrar deneme, raporla.
-4. aksam ise YouTube: `$PY motor/youtube.py yukle medya/<klasör>/reel.mp4 --baslik "<≤90 karakter> #Shorts" --aciklama-dosyasi medya/<klasör>/reel_aciklama.txt --etiketler "<5-8 etiket>" --gizlilik public`. Oturum hatası olursa YouTube'u atla ve raporla. Instagram başarısız olsa bile YouTube'u dene (ve tersi).
+4. YouTube (iki slotta da): ogle → video = `medya/<klasör>/karusel_video.mp4` (uret.py otomatik üretir), açıklama = karusel_aciklama.txt; aksam → video = reel.mp4, açıklama = reel_aciklama.txt. Komut: `$PY motor/youtube.py yukle <video> --baslik "<≤90 karakter> #Shorts" --aciklama-dosyasi <açıklama> --etiketler "<5-8 etiket>" --gizlilik public`. Oturum hatası olursa YouTube'u atla ve raporla. Instagram başarısız olsa bile YouTube'u dene (ve tersi).
 5. Günlükteki kayda instagram permalink ve youtube linkini yaz, sonra tekrar `$PY motor/yayinla.py medya/<klasör>` çalıştır (durum dosyası GitHub'a gider).
 
 ## 6. Rapor

@@ -94,7 +94,7 @@ def ust_golge(W, h=220):
 
 
 # ---------------------------------------------------------------- KARUSEL
-def karusel(spec, out: Path, handle):
+def karusel(spec, out: Path, handle, pill=True, onek="karusel"):
     W, H, M = 1080, 1350, 80
     slides = spec["slides"]
     n = len(slides)
@@ -140,7 +140,7 @@ def karusel(spec, out: Path, handle):
             y = yaz(d, (M, y), lines, f, renk, lh)
 
         ff = font(FONT_B, 30)
-        if kind == "kapak":
+        if kind == "kapak" and pill:
             pill = "Kaydırarak oku"
             tw_ = d.textlength(pill, font=ff)
             pw = tw_ + 100
@@ -162,7 +162,7 @@ def karusel(spec, out: Path, handle):
             nf2 = font(FONT_R, 24)
             d.text((W - M - d.textlength(s["not"], font=nf2), H - 44), s["not"], font=nf2, fill=ACIK)
 
-        img.convert("RGB").save(out / f"karusel_{i:02d}.jpg", quality=92)
+        img.convert("RGB").save(out / f"{onek}_{i:02d}.jpg", quality=92)
     return n
 
 
@@ -330,16 +330,77 @@ def reel(spec, out: Path, handle):
     return final
 
 
+CTA_SES = "Detaylı bilgi almak istersen DM üzerinden bize ulaşabilirsin."
+
+
+def slayt_sesi(s):
+    """Slaytın seslendirme metni: varsa 'ses' alanı, yoksa başlık + metin."""
+    if s.get("ses"):
+        return s["ses"]
+    if s.get("tip") == "cta":
+        return f"{s['baslik']} {CTA_SES}"
+    parca = [s["baslik"].replace("\n", " ").rstrip(".?!:") + "."]
+    ek = s.get("metin") or s.get("alt")
+    if ek:
+        parca.append(ek.replace("·", ",").replace("\n", " "))
+    return " ".join(parca)
+
+
+def karusel_video(spec, out: Path):
+    """Karusel slaytlarından YouTube Shorts videosu: 9:16, bulanık arka plan, seslendirme, hafif yakınlaşma."""
+    tmp = out / "_tmpk"
+    shutil.rmtree(tmp, ignore_errors=True)
+    tmp.mkdir()
+    slaytlar = sorted(out.glob("karusel_*.jpg"))
+    handle = (json.loads((out / "icerik.json").read_text(encoding="utf-8")).get("hesap", "gecirgenbagirsak"))
+    if spec["slides"] and spec["slides"][0].get("tip") == "kapak":
+        karusel({"slides": spec["slides"][:1]}, tmp, handle, pill=False, onek="kapak")
+        slaytlar[0] = tmp / "kapak_01.jpg"
+    parcalar = []
+    for i, (s, jpg) in enumerate(zip(spec["slides"], slaytlar), 1):
+        mp3 = tmp / f"k{i}.mp3"
+        asyncio.run(tts(slayt_sesi(s), mp3))
+        dur = max(sure(mp3) + 0.5, 3.0)
+        kare = int(dur * 30)
+        mp4 = tmp / f"k{i}.mp4"
+        fc = (f"[0:v]split[a][b];"
+              f"[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=30:3,"
+              f"eq=brightness=-0.12[bg];"
+              f"[b]scale=1080:-2,zoompan=z='min(zoom+0.0004,1.05)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+              f"d={kare}:s=1080x1350:fps=30[fg];"
+              f"[bg][fg]overlay=0:(H-h)/2,fade=in:0:8,format=yuv420p[v]")
+        subprocess.run([
+            "ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", str(jpg), "-i", str(mp3),
+            "-filter_complex", fc, "-map", "[v]", "-map", "1:a", "-af", "apad", "-t", f"{dur:.3f}",
+            "-c:v", "libx264", "-preset", "medium", "-crf", "21", "-maxrate", "2500k", "-bufsize", "5000k",
+            "-r", "30", "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2", str(mp4)], check=True)
+        parcalar.append(mp4)
+    liste = tmp / "liste.txt"
+    liste.write_text("".join(f"file '{p.name}'\n" for p in parcalar), encoding="utf-8")
+    final = out / "karusel_video.mp4"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(liste),
+                    "-c", "copy", "-movflags", "+faststart", str(final)], check=True)
+    shutil.rmtree(tmp, ignore_errors=True)
+    return final
+
+
 def main():
     klasor = Path(sys.argv[1]).resolve()
+    sadece_video = "--sadece-video" in sys.argv  # mevcut slaytlardan sadece YouTube videosunu üret
     spec = json.loads((klasor / "icerik.json").read_text(encoding="utf-8"))
     handle = spec.get("hesap", "gecirgenbagirsak")
     for eski in list(klasor.glob("karusel_*.png")):
         eski.unlink()
     if "karusel" in spec:
-        n = karusel(spec["karusel"], klasor, handle)
-        (klasor / "karusel_aciklama.txt").write_text(spec["karusel"]["aciklama"], encoding="utf-8")
-        print(f"karusel: {n} slayt")
+        if not sadece_video:
+            n = karusel(spec["karusel"], klasor, handle)
+            (klasor / "karusel_aciklama.txt").write_text(spec["karusel"]["aciklama"], encoding="utf-8")
+            print(f"karusel: {n} slayt")
+        if spec["karusel"].get("video", True):
+            v = karusel_video(spec["karusel"], klasor)
+            print(f"karusel_video: {v.name} {sure(v):.1f} sn, {v.stat().st_size / 1e6:.1f} MB")
+        if sadece_video:
+            return
     if "reel" in spec:
         f = reel(spec["reel"], klasor, handle)
         (klasor / "reel_aciklama.txt").write_text(spec["reel"]["aciklama"], encoding="utf-8")

@@ -62,6 +62,7 @@ Bu hesap bir forum ya da bilgi sayfası DEĞİL; her içeriğin tek amacı izley
 - CTA slaytı metni örn.: "Bu işaretlerden hangileri sende var? Sende neden kaynaklandığını birlikte netleştirelim."
 - **Sayfa numarası yok.** Madde numarası (`no`) sadece başlıktaki listeyle birebir (ör. "5 işaret" → 1..5). Kapak/öneri/CTA slaytlarında `no` yok.
 - Madde metni en fazla ~140 karakter; başlık kısa.
+- uret.py karuselden ayrıca `karusel_video.mp4` (YouTube Shorts) üretir: her slayt ekranda, slayt metni seslendirilir. Seslendirme varsayılan olarak başlık + metindir; daha akıcı olsun istersen slayta `"ses": "..."` alanı ekle (sade, tek-iki cümle). Kapakta 'Kaydırarak oku' videoda otomatik gizlenir. Video ≤ 90 sn olmalı.
 
 ## Reels (akşam)
 - 6-8 sahne, toplam 30-45 sn. İlk sahne kanca + `baslik` (üstte turuncu kutu, kısa soru). Her sahne 1 cümle seslendirme.
