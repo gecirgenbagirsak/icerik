@@ -1,4 +1,4 @@
-﻿# Konu havuzu
+# Konu havuzu
 
 Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmamış** bir konu seçer (K = karusel, R = reels).
 **Her konu "belirti → NEDEN oluyor → çözüm kişiye özel → DM" çizgisinde işlenir. Hiçbir konuda tavsiye/ipucu/yapılacaklar listesi verilmez** (bkz. KURALLAR.md "İÇERİK STRATEJİSİ"). Havuz azalınca aynı mantıkla yeni "neden" konuları üretip buraya ekle.
@@ -6,7 +6,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 ## Kitlenin kendi cümlesiyle (öncelikli — en çok dokunan kancalar)
 - R: "3 gündür tuvalete çıkamadım" — bağırsak tembel değil, aç olabilir (BİLGİ §1)
 - K: "Lif de yedim su da içtim, yine gidemiyorum": kabızlığın gözden kaçan 4 sebebi (BİLGİ §1) ✅ (18.11.2026 öğle)
-- R: "Yediğim her şey dokunuyor" — yemekten hemen sonra tuvalete koşmanın sebebi (BİLGİ §2)
+- R: "Yediğim her şey dokunuyor" — yemekten hemen sonra tuvalete koşmanın sebebi (BİLGİ §2) ✅ (18.11.2026 akşam)
 - K: Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep (BİLGİ §2)
 - R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3)
 - R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4)
