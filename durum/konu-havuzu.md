@@ -10,7 +10,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - K: Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep (BİLGİ §2)
 - R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3)
 - R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4)
-- K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6)
+- K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6) ✅ (19.11.2026 öğle)
 - R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6)
 - R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7)
 - K: "Her kremi denedim, sivilcem geçmiyor": cilt neden bağırsağın aynası (BİLGİ §8)
