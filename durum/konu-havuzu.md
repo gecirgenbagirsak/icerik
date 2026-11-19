@@ -8,7 +8,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - K: "Lif de yedim su da içtim, yine gidemiyorum": kabızlığın gözden kaçan 4 sebebi (BİLGİ §1) ✅ (18.11.2026 öğle)
 - R: "Yediğim her şey dokunuyor" — yemekten hemen sonra tuvalete koşmanın sebebi (BİLGİ §2) ✅ (18.11.2026 akşam)
 - K: Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep (BİLGİ §2)
-- R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3)
+- R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3) ✅ (19.11.2026 akşam)
 - R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4)
 - K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6) ✅ (19.11.2026 öğle)
 - R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6)
