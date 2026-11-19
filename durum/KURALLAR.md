@@ -55,7 +55,7 @@ Bu hesap bir forum ya da bilgi sayfası DEĞİL; her içeriğin tek amacı izley
 - **CTA:** "DM'den yaz" KULLANMA. Kullan: "Detaylı bilgi için DM üzerinden bize ulaşın" / "Detaylı bilgi almak istersen DM üzerinden bize ulaşabilirsin".
 - Karusel son slayt: `tip: cta`, `buton: "Detaylı bilgi için DM'den ulaşın"`, `not: "Bu içerik bilgilendirme amaçlıdır."`
 - Reel son sahne: `kapanis: {"ust": "Detaylı bilgi için", "ana": "DM üzerinden bize ulaşın"}` (altyazı otomatik kapanır).
-- Açıklama (caption): kanca cümle (belirti/soru) + 1-2 kısa paragraf SEBEP + köprü cümlesi ("Sende neden kaynaklandığını birlikte netleştirelim.") + "Detaylı bilgi için DM üzerinden bize ulaşabilirsiniz 💬" + 8-10 Türkçe hashtag. Açıklamada da tavsiye/ipucu YOK. Emoji ölçülü.
+- Açıklama (caption): kanca cümle (belirti/soru) + 1-2 kısa paragraf SEBEP + köprü cümlesi ("Sende neden kaynaklandığını birlikte netleştirelim.") + ZORUNLU kapanış bloğu (her açıklamada, hashtag'lerin hemen üstünde, aynen): "Detaylı bilgi için DM üzerinden bize ulaşabilirsiniz 💬" + yeni satır "📩 Instagram: @gecirgenbagirsak" + yeni satır "👉 https://www.instagram.com/gecirgenbagirsak/" + 8-10 Türkçe hashtag. Açıklamada da tavsiye/ipucu YOK. Emoji ölçülü.
 
 ## Karusel (öğlen)
 - 6-8 slayt, 1080×1350. Kapak (`tip: kapak`, güçlü kanca) → belirtiler veya sebepler (numaralı) → **köprü slaytı** (numarasız; başlık örn. "Sebebi herkeste farklı", metin: çözümün kişiye özel olduğu, birlikte bakmak gerektiği — tavsiye listesi YOK) → CTA.
@@ -69,7 +69,7 @@ Bu hesap bir forum ya da bilgi sayfası DEĞİL; her içeriğin tek amacı izley
 - Sahne akışı: belirti (1-2 sahne) → sebep/mekanizma (3-4 sahne) → köprü (1 sahne: "Bunun sebebi herkeste farklı; sende neyden kaynaklandığını birlikte bulalım.") → kapanış kartı (seslendirme: "Detaylı bilgi almak istersen DM üzerinden bize ulaşabilirsin."). Çözüm/ipucu sahnesi YOK.
 - Her sahneye konuya uyan 1-2 Pixabay video klibi (`video: id` veya `[id, id]`).
 - Dosya ≤ 20 MB (uret.py zaten sınırlıyor).
-- YouTube başlığı: ≤ 90 karakter, sonunda ` #Shorts`. Açıklama = reel_aciklama.txt.
+- YouTube başlığı: ≤ 90 karakter, sonunda ` #Shorts`. Açıklama = reel_aciklama.txt. (Instagram ile aynı metin; YouTube'da DM olmadığı için açıklamadaki Instagram hesabı satırları bunu karşılar.)
 
 ## Kalite kontrolü (yayından önce zorunlu)
 - Karusel: tüm slaytları birleştirip bak (ffmpeg hstack/vstack) — yazı yüzü kapatıyor mu, Türkçe karakterler doğru mu, numaralar doğru mu.
