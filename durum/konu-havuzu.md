@@ -12,7 +12,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4)
 - K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6) ✅ (19.11.2026 öğle)
 - R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6)
-- R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7)
+- R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7) ✅ (20.11.2026 akşam)
 - K: "Her kremi denedim, sivilcem geçmiyor": cilt neden bağırsağın aynası (BİLGİ §8)
 - R: Mutluluk maddesinin %90'ı nerede üretiliyor? (BİLGİ §7)
 - R: "Tahlillerim temiz ama şikâyetim geçmiyor" (BİLGİ §11)
