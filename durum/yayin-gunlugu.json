@@ -1,145 +1,164 @@
 [
-  {
-    "tarih": "2026-11-17",
-    "slot": "test",
-    "format": "karusel",
-    "konu": "Bağırsağın yardım istiyor olabilir: 5 işaret",
-    "klasor": "icerik/2026-11-18-ornek-v2",
-    "pixabay": [
-      6080984,
-      2493327,
-      1850268,
-      3805349,
-      1851143,
-      4941765,
-      1085063,
-      5678998
-    ],
-    "instagram": "https://www.instagram.com/p/Df2PDGCjWK0/"
-  },
-  {
-    "tarih": "2026-11-17",
-    "slot": "test",
-    "format": "reels",
-    "konu": "Bağırsak duvarı neden geçirgen olur?",
-    "klasor": "icerik/2026-11-18-ornek-v2",
-    "pixabay": [
-      168342,
-      349469,
-      94791,
-      81025,
-      44637,
-      79170,
-      356885,
-      61678,
-      71125,
-      208770
-    ],
-    "youtube": "https://youtube.com/shorts/PamQRSP3Xaw",
-    "not": "YouTube'a private test olarak yüklendi, kullanıcı herkese açtı. Instagram'da reels olarak paylaşılmadı."
-  },
-  {
-    "tarih": "2026-11-17",
-    "slot": "aksam",
-    "format": "reels",
-    "konu": "Akşam olunca karnın neden balon gibi şişiyor?",
-    "klasor": "medya/2026-11-17-aksam (bulutta kaldı)",
-    "pixabay": [
-      61699
-    ],
-    "youtube": "https://youtube.com/shorts/ZQE98j8r98E",
-    "instagram": null,
-    "not": "Bulut testi: GitHub erişimi kapalı olduğu için Instagram paylaşılamadı, sadece YouTube."
-  },
-  {
-    "tarih": "2026-11-17",
-    "slot": "aksam",
-    "format": "reels",
-    "konu": "Demir ilacı kullanıyorum ama yükselmiyor — sorun emilimde olabilir",
-    "klasor": "medya/2026-11-17-aksam",
-    "pixabay": [
-      83875,
-      233390,
-      57049,
-      78736,
-      46989,
-      61682,
-      11604,
-      83870
-    ],
-    "instagram": "https://www.instagram.com/reel/Df2WWAhiJSu/",
-    "youtube": "https://youtube.com/shorts/9DHCGSQ8qMQ"
-  },
-  {
-    "tarih": "2026-11-18",
-    "slot": "ogle",
-    "format": "karusel",
-    "konu": "Lif de yedim su da içtim, yine gidemiyorum: kabızlığın gözden kaçan 4 sebebi",
-    "klasor": "medya/2026-11-18-ogle",
-    "pixabay": [
-      5308379,
-      6059889,
-      2637841,
-      3087585,
-      2385799,
-      5505598,
-      1274056
-    ],
-    "instagram": "https://www.instagram.com/p/Df4JuRCiCLD/",
-    "youtube": "https://youtube.com/shorts/wdf4GI4UyZI"
-  },
-  {
-    "tarih": "2026-11-18",
-    "slot": "aksam",
-    "format": "reels",
-    "konu": "Yediğim her şey dokunuyor — yemekten sonra tuvalete koşmanın sebebi",
-    "klasor": "medya/2026-11-18-aksam",
-    "pixabay": [
-      25033,
-      44646,
-      135138,
-      124252,
-      44647,
-      43459,
-      174003
-    ],
-    "instagram": "https://www.instagram.com/reel/Df5AxgpFkI1/",
-    "youtube": "https://youtube.com/shorts/_qiEH_VvbR4"
-  },
-  {
-    "tarih": "2026-11-19",
-    "slot": "ogle",
-    "format": "karusel",
-    "konu": "Demir içiyorum ama yükselmiyor: 3 gizli kilit (emilim, iltihap, mide)",
-    "klasor": "medya/2026-11-19-ogle",
-    "pixabay": [
-      377438,
-      9828897,
-      2681502,
-      2590564,
-      1617909,
-      2594435
-    ],
-    "instagram": "https://www.instagram.com/p/Df6ufq8jm-b/",
-    "youtube": "https://youtube.com/shorts/kcidFrwKqWM"
-  },
-  {
-    "tarih": "2026-11-19",
-    "slot": "aksam",
-    "format": "reels",
-    "konu": "Bir hafta kabız, bir hafta ishal — bağırsak neden karar veremiyor?",
-    "klasor": "medya/2026-11-19-aksam",
-    "pixabay": [
-      61706,
-      151295,
-      61702,
-      365916,
-      113861,
-      349792,
-      151297,
-      34473
-    ],
-    "instagram": "https://www.instagram.com/reel/Df7lX7jk4QZ/",
-    "youtube": "https://youtube.com/shorts/gpp60RXEWGw"
-  }
+ {
+  "tarih": "2026-11-17",
+  "slot": "test",
+  "format": "karusel",
+  "konu": "Bağırsağın yardım istiyor olabilir: 5 işaret",
+  "klasor": "icerik/2026-11-18-ornek-v2",
+  "pixabay": [
+   6080984,
+   2493327,
+   1850268,
+   3805349,
+   1851143,
+   4941765,
+   1085063,
+   5678998
+  ],
+  "instagram": "https://www.instagram.com/p/Df2PDGCjWK0/"
+ },
+ {
+  "tarih": "2026-11-17",
+  "slot": "test",
+  "format": "reels",
+  "konu": "Bağırsak duvarı neden geçirgen olur?",
+  "klasor": "icerik/2026-11-18-ornek-v2",
+  "pixabay": [
+   168342,
+   349469,
+   94791,
+   81025,
+   44637,
+   79170,
+   356885,
+   61678,
+   71125,
+   208770
+  ],
+  "youtube": "https://youtube.com/shorts/PamQRSP3Xaw",
+  "not": "YouTube'a private test olarak yüklendi, kullanıcı herkese açtı. Instagram'da reels olarak paylaşılmadı."
+ },
+ {
+  "tarih": "2026-11-17",
+  "slot": "aksam",
+  "format": "reels",
+  "konu": "Akşam olunca karnın neden balon gibi şişiyor?",
+  "klasor": "medya/2026-11-17-aksam (bulutta kaldı)",
+  "pixabay": [
+   61699
+  ],
+  "youtube": "https://youtube.com/shorts/ZQE98j8r98E",
+  "instagram": null,
+  "not": "Bulut testi: GitHub erişimi kapalı olduğu için Instagram paylaşılamadı, sadece YouTube."
+ },
+ {
+  "tarih": "2026-11-17",
+  "slot": "aksam",
+  "format": "reels",
+  "konu": "Demir ilacı kullanıyorum ama yükselmiyor — sorun emilimde olabilir",
+  "klasor": "medya/2026-11-17-aksam",
+  "pixabay": [
+   83875,
+   233390,
+   57049,
+   78736,
+   46989,
+   61682,
+   11604,
+   83870
+  ],
+  "instagram": "https://www.instagram.com/reel/Df2WWAhiJSu/",
+  "youtube": "https://youtube.com/shorts/9DHCGSQ8qMQ"
+ },
+ {
+  "tarih": "2026-11-18",
+  "slot": "ogle",
+  "format": "karusel",
+  "konu": "Lif de yedim su da içtim, yine gidemiyorum: kabızlığın gözden kaçan 4 sebebi",
+  "klasor": "medya/2026-11-18-ogle",
+  "pixabay": [
+   5308379,
+   6059889,
+   2637841,
+   3087585,
+   2385799,
+   5505598,
+   1274056
+  ],
+  "instagram": "https://www.instagram.com/p/Df4JuRCiCLD/",
+  "youtube": "https://youtube.com/shorts/wdf4GI4UyZI"
+ },
+ {
+  "tarih": "2026-11-18",
+  "slot": "aksam",
+  "format": "reels",
+  "konu": "Yediğim her şey dokunuyor — yemekten sonra tuvalete koşmanın sebebi",
+  "klasor": "medya/2026-11-18-aksam",
+  "pixabay": [
+   25033,
+   44646,
+   135138,
+   124252,
+   44647,
+   43459,
+   174003
+  ],
+  "instagram": "https://www.instagram.com/reel/Df5AxgpFkI1/",
+  "youtube": "https://youtube.com/shorts/_qiEH_VvbR4"
+ },
+ {
+  "tarih": "2026-11-19",
+  "slot": "ogle",
+  "format": "karusel",
+  "konu": "Demir içiyorum ama yükselmiyor: 3 gizli kilit (emilim, iltihap, mide)",
+  "klasor": "medya/2026-11-19-ogle",
+  "pixabay": [
+   377438,
+   9828897,
+   2681502,
+   2590564,
+   1617909,
+   2594435
+  ],
+  "instagram": "https://www.instagram.com/p/Df6ufq8jm-b/",
+  "youtube": "https://youtube.com/shorts/kcidFrwKqWM"
+ },
+ {
+  "tarih": "2026-11-19",
+  "slot": "aksam",
+  "format": "reels",
+  "konu": "Bir hafta kabız, bir hafta ishal — bağırsak neden karar veremiyor?",
+  "klasor": "medya/2026-11-19-aksam",
+  "pixabay": [
+   61706,
+   151295,
+   61702,
+   365916,
+   113861,
+   349792,
+   151297,
+   34473
+  ],
+  "instagram": "https://www.instagram.com/reel/Df7lX7jk4QZ/",
+  "youtube": "https://youtube.com/shorts/gpp60RXEWGw"
+ },
+ {
+  "tarih": "2026-11-20",
+  "slot": "ogle",
+  "format": "karusel",
+  "konu": "Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep",
+  "klasor": "medya/2026-11-20-ogle",
+  "pixabay": [
+   413690,
+   2609115,
+   3096733,
+   2042536,
+   1492052,
+   2191104,
+   2048905,
+   9849092
+  ],
+  "instagram": null,
+  "youtube": null
+ }
 ]
