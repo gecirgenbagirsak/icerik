@@ -1,0 +1,45 @@
+name: Günlük uzun video
+
+on:
+  schedule:
+    - cron: "0 5 * * *"    # 08:00 TR
+    - cron: "0 11 * * *"   # 14:00 TR (ilk deneme başarısızsa tekrar)
+  workflow_dispatch:
+    inputs:
+      indirme_testi:
+        description: "Sadece indirmeyi dene, yükleme yapma"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: uzun-video
+  cancel-in-progress: false
+
+jobs:
+  yukle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - run: pip install -q "yt-dlp[default]" google-api-python-client google-auth google-auth-oauthlib
+      - name: Yükle
+        env:
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          INDIRME_TESTI: ${{ inputs.indirme_testi }}
+        run: python uzun-video/yukle.py
+      - name: Durumu kaydet
+        run: |
+          git config user.name "uzun-video-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add uzun-video/yuklenenler.json
+          git diff --cached --quiet || (git commit -m "uzun video: durum güncellendi" && git pull --rebase -q && git push)
