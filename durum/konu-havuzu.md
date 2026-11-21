@@ -15,7 +15,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7) ✅ (20.11.2026 akşam)
 - K: "Her kremi denedim, sivilcem geçmiyor": cilt neden bağırsağın aynası (BİLGİ §8) ✅ (21.11.2026 öğle)
 - R: Mutluluk maddesinin %90'ı nerede üretiliyor? (BİLGİ §7)
-- R: "Tahlillerim temiz ama şikâyetim geçmiyor" (BİLGİ §11)
+- R: "Tahlillerim temiz ama şikâyetim geçmiyor" (BİLGİ §11) ✅ (21.11.2026 akşam)
 
 ## Demir eksikliği (en çok ilgi)
 - K: Demir eksikliğinin gözden kaçan 6 belirtisi (saç dökülmesi, tırnak kırılması, buz yeme isteği, nefes darlığı, soğuk eller, halsizlik) → hepsinin ortak kaynağı → DM
