@@ -99,7 +99,7 @@ def main():
                 _, yanit = istek.next_chunk()
         except Exception as e:
             if kota_hatasi(e):
-                print("YouTube günlük kotası doldu; sonraki çalışmada devam edilecek.")
+                print(f"YouTube günlük sınırı doldu; sonraki çalışmada devam edilecek. ({str(e)[-300:]})")
                 return
             raise
         vid = yanit["id"]
