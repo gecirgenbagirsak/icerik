@@ -35,7 +35,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 
 ## Reflü ve mide
 - R: Uzun süre mide ilacı kullanmanın gözden kaçan yanı: emilim
-- K: Reflünün sanılmayan 4 kaynağı
+- K: Reflünün sanılmayan 4 kaynağı ✅ (22.11.2026 öğle)
 
 ## Cilt – bağırsak ekseni
 - R: Sivilceler geçmiyorsa sebebi bağırsakta olabilir
