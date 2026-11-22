@@ -9,7 +9,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: "Yediğim her şey dokunuyor" — yemekten hemen sonra tuvalete koşmanın sebebi (BİLGİ §2) ✅ (18.11.2026 akşam)
 - K: Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep (BİLGİ §2) ✅ (20.11.2026 öğle)
 - R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3) ✅ (19.11.2026 akşam)
-- R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4)
+- R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4) ✅ (22.11.2026 akşam)
 - K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6) ✅ (19.11.2026 öğle)
 - R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6)
 - R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7) ✅ (20.11.2026 akşam)
