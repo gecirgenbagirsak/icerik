@@ -58,6 +58,6 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: Bağırsak duvarı neden kendini yenileyemez hale gelir?
 
 ## "Neden geçmiyor" serisi (satışa en yakın)
-- K: Probiyotik kullandın ama işe yaramadı mı? 4 olası sebep
+- K: Probiyotik kullandın ama işe yaramadı mı? 4 olası sebep ✅ (23.11.2026 öğle)
 - R: Diyet yapıyorsun ama şişkinlik geçmiyor: sebebi
 - K: Doktora gittin, "tahlillerin temiz" dendi ama şikâyetin sürüyor: neden olabilir
