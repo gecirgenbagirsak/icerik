@@ -1,0 +1,35 @@
+name: YT bulut testi
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  models: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: pip install -q "yt-dlp[default]"
+      - name: Indirme testi
+        continue-on-error: true
+        run: |
+          for c in default tv_simply android_vr web_safari mweb; do
+            echo "=== client: $c"
+            yt-dlp -q --no-warnings --extractor-args "youtube:player_client=$c" -f "best[height<=720]/best" -o "t_$c.%(ext)s" "https://www.youtube.com/shorts/rw4zNSvZJl8" 2>&1 | tail -2 && ls -la t_$c.* 2>/dev/null
+          done
+          echo "=== uzun video"
+          yt-dlp -q --no-warnings -f "best[height<=720]/best" -o "uzun.%(ext)s" "https://www.youtube.com/watch?v=6feGWZdXqbw" 2>&1 | tail -2; ls -la uzun.* 2>/dev/null
+      - name: Yapay zeka testi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s https://models.github.ai/inference/chat/completions -H "Authorization: Bearer $GH_TOKEN" -H "Content-Type: application/json" -d '{"model":"openai/gpt-4.1-mini","messages":[{"role":"user","content":"Bir e-ticaret videosu icin 1 cumlelik Turkce aciklama yaz."}],"max_tokens":80}'
