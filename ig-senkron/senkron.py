@@ -97,11 +97,35 @@ def hazir_bekle(cid, tok):
     raise RuntimeError(f"Konteyner zaman asimi {cid}")
 
 
-def yayinla(params):
+def indir(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=300) as r:
+        return r.read()
+
+
+def konteyner(params):
+    """Video ise dosyayi indirip Instagram'a dogrudan yukler (resumable); gorsel ise URL ile."""
     tok = TOK["hedef"]
-    c = istek(f"{HEDEF_IG}/media", tok, params, post=True)["id"]
-    hazir_bekle(c, tok)
-    return istek(f"{HEDEF_IG}/media_publish", tok, {"creation_id": c}, post=True)["id"]
+    params = dict(params)
+    video = params.pop("video_url", None)
+    if video:
+        params["upload_type"] = "resumable"
+    d = istek(f"{HEDEF_IG}/media", tok, params, post=True)
+    cid = d["id"]
+    if video:
+        veri = indir(video)
+        hedef_url = d.get("uri") or f"https://rupload.facebook.com/ig-api-upload/v24.0/{cid}"
+        req = urllib.request.Request(hedef_url, data=veri, method="POST", headers={
+            "Authorization": f"OAuth {tok}", "offset": "0", "file_size": str(len(veri))})
+        with urllib.request.urlopen(req, timeout=600) as r:
+            r.read()
+    hazir_bekle(cid, tok)
+    return cid
+
+
+def yayinla(params):
+    c = konteyner(params)
+    return istek(f"{HEDEF_IG}/media_publish", TOK["hedef"], {"creation_id": c}, post=True)["id"]
 
 
 def gonderi_paylas(m):
@@ -109,8 +133,6 @@ def gonderi_paylas(m):
     tur = m["media_type"]
     if tur == "VIDEO":
         p = {"media_type": "REELS", "video_url": m["media_url"], "caption": cap, "share_to_feed": "true"}
-        if m.get("thumbnail_url"):
-            p["cover_url"] = m["thumbnail_url"]
         return yayinla(p)
     if tur == "IMAGE":
         return yayinla({"image_url": m["media_url"], "caption": cap})
@@ -122,9 +144,7 @@ def gonderi_paylas(m):
                 p.update(media_type="VIDEO", video_url=ch["media_url"])
             else:
                 p["image_url"] = ch["media_url"]
-            cid = istek(f"{HEDEF_IG}/media", TOK["hedef"], p, post=True)["id"]
-            hazir_bekle(cid, TOK["hedef"])
-            cocuklar.append(cid)
+            cocuklar.append(konteyner(p))
         return yayinla({"media_type": "CAROUSEL", "children": ",".join(cocuklar), "caption": cap})
     raise RuntimeError(f"Bilinmeyen tur {tur}")
 
@@ -169,9 +189,9 @@ def main():
     ]
     print(f"Kaynak {len(kaynak)} gonderi, hedefte eksik {len(bekleyen)}")
 
-    paylasilan = 0
+    paylasilan = hata = 0
     for m in bekleyen:
-        if paylasilan >= GONDERI_PER_CALISMA:
+        if paylasilan >= GONDERI_PER_CALISMA or hata >= 3:
             break
         print(f"[gonderi] {m['timestamp']} {m['media_type']} {m.get('permalink')}")
         if KURU:
@@ -183,6 +203,7 @@ def main():
             print(f"  paylasilamadi, atlandi: {e}")
             durum["atlananlar"][m["id"]] = str(e)[:300]
             kaydet(durum)
+            hata += 1
             continue
         durum["gonderiler"][m["id"]] = yeni
         paylasilan += 1
@@ -194,7 +215,13 @@ def main():
                 ilk = m["children"]["data"][0]
                 hikaye_paylas(ilk["media_type"], ilk["media_url"])
             else:
-                hikaye_paylas(m["media_type"], m["media_url"])
+                try:
+                    hikaye_paylas(m["media_type"], m["media_url"])
+                except Exception:
+                    if m["media_type"] != "VIDEO" or not m.get("thumbnail_url"):
+                        raise
+                    # uzun video hikayeye sigmiyor: kapak gorselini hikaye yap
+                    hikaye_paylas("IMAGE", m["thumbnail_url"])
             print("  hikayeye de eklendi")
         except Exception as e:
             print(f"  hikayeye eklenemedi: {e}")

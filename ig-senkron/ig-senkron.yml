@@ -32,7 +32,7 @@ jobs:
         env:
           IG_TOKENS: ${{ secrets.IG_TOKENS }}
           KURU: ${{ inputs.kuru }}
-        run: python ig-senkron/senkron.py
+        run: python -u ig-senkron/senkron.py
       - name: Durumu kaydet
         if: always()
         run: |
