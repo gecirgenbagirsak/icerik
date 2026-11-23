@@ -86,6 +86,36 @@ def aciklama_uyarla(c):
     return "".join(parcalar).strip()[:2200]
 
 
+SEHIRLER = """adana adıyaman afyon ağrı amasya ankara antalya artvin aydın balıkesir bilecik bingöl bitlis bolu
+burdur bursa çanakkale çankırı çorum denizli diyarbakır edirne elazığ erzincan erzurum eskişehir gaziantep giresun
+gümüşhane hakkari hatay ısparta isparta mersin istanbul izmir kars kastamonu kayseri kırklareli kırşehir kocaeli
+konya kütahya malatya manisa kahramanmaraş mardin muğla muş nevşehir niğde ordu rize sakarya samsun siirt sinop
+sivas tekirdağ tokat trabzon tunceli şanlıurfa uşak van yozgat zonguldak aksaray bayburt karaman kırıkkale batman
+şırnak bartın ardahan iğdır yalova karabük kilis osmaniye düzce alanya kuşadası iskenderun pamukkale kapadokya
+bodrum fethiye marmaris didim çeşme gebze afyonkarahisar karadeniz ege""".split()
+ETKINLIK = re.compile(
+    r"seminer|toplant[ıi]|etkinli|masterclass|\bkamp(ı|i|ımız|imiz|lar|ları|\b)|\bturu\b|buluşma|"
+    r"netlik akşamı|geride (bıraktık|kaldı)|geri sayım|röportaj|kontenjan|yer ayırt", re.I)
+
+
+def kucuk(s):
+    return (s or "").replace("I", "ı").replace("İ", "i").lower()
+
+
+def sehir_etkinligi(caption):
+    """Sehir toplantisi / seminer / kamp duyurusu veya haberi mi?"""
+    c = kucuk(caption)
+    if ETKINLIK.search(c):
+        return True
+    ust = " ".join(c.split("\n")[:3])
+    kelimeler = set(re.findall(r"[a-zçğıöşü]+", ust))
+    # "ankara'da", "izmir’de" gibi ekli halleri de yakala
+    for s in SEHIRLER:
+        if s in kelimeler or re.search(rf"\b{s}\s*['’`]", ust) or re.search(rf"\b{s}(da|de|ta|te|dan|den|lı|li)\b", ust):
+            return True
+    return False
+
+
 def hazir_bekle(cid, tok):
     for _ in range(60):
         d = istek(cid, tok, {"fields": "status_code,status"})
@@ -165,24 +195,15 @@ def main():
     hedef = hepsini_cek(f"{HEDEF_IG}/media", TOK["hedef"], {"fields": "id,caption", "limit": 100})
     hedef_anahtarlar = {anahtar(h.get("caption")) for h in hedef if h.get("caption")}
 
-    # 1) Canli hikayeler
-    hikayeler = hepsini_cek(f"{KAYNAK_IG}/stories", TOK["kaynak"], {"fields": "id,media_type,media_url,timestamp"})
-    for h in sorted(hikayeler, key=lambda x: x["timestamp"]):
-        if h["id"] in durum["hikayeler"] or not h.get("media_url"):
-            continue
-        print(f"[hikaye] {h['timestamp']} {h['media_type']}")
-        if KURU:
-            continue
-        try:
-            durum["hikayeler"][h["id"]] = hikaye_paylas(h["media_type"], h["media_url"])
-        except Exception as e:
-            print(f"  hikaye kopyalanamadi: {e}")
-        kaydet(durum)
+    # 1) Canli hikayeler kopyalanmiyor: kaynaktaki hikayeler cogunlukla sehir etkinligi
+    #    ve aciklamasi olmadigi icin filtrelenemiyor (kullanici istegi, 24.11.2026).
 
-    # 2) Eksik gonderiler, en eskiden baslayarak
+    # 2) Eksik gonderiler, en yeniden baslayarak; sehir etkinlikleri atlanir
     bekleyen = [
-        m for m in sorted(kaynak, key=lambda x: x["timestamp"])
-        if m["id"] not in durum["gonderiler"]
+        m for m in sorted(kaynak, key=lambda x: x["timestamp"], reverse=True)
+        if m.get("media_product_type") != "STORY"
+        and not sehir_etkinligi(m.get("caption"))
+        and m["id"] not in durum["gonderiler"]
         and m["id"] not in durum["atlananlar"]
         and anahtar(m.get("caption")) not in hedef_anahtarlar
         and (m.get("media_url") or m.get("media_type") == "CAROUSEL_ALBUM")
