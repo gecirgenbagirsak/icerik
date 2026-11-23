@@ -4,7 +4,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 **Her konu "belirti → NEDEN oluyor → çözüm kişiye özel → DM" çizgisinde işlenir. Hiçbir konuda tavsiye/ipucu/yapılacaklar listesi verilmez** (bkz. KURALLAR.md "İÇERİK STRATEJİSİ"). Havuz azalınca aynı mantıkla yeni "neden" konuları üretip buraya ekle.
 
 ## Kitlenin kendi cümlesiyle (öncelikli — en çok dokunan kancalar)
-- R: "3 gündür tuvalete çıkamadım" — bağırsak tembel değil, aç olabilir (BİLGİ §1)
+- R: "3 gündür tuvalete çıkamadım" — bağırsak tembel değil, aç olabilir (BİLGİ §1) ✅ (23.11.2026 akşam)
 - K: "Lif de yedim su da içtim, yine gidemiyorum": kabızlığın gözden kaçan 4 sebebi (BİLGİ §1) ✅ (18.11.2026 öğle)
 - R: "Yediğim her şey dokunuyor" — yemekten hemen sonra tuvalete koşmanın sebebi (BİLGİ §2) ✅ (18.11.2026 akşam)
 - K: Sürekli ishal: yediklerin vücuduna hiç uğramadan gidiyor olabilir — 5 sebep (BİLGİ §2) ✅ (20.11.2026 öğle)
