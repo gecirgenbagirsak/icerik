@@ -102,6 +102,21 @@ def kucuk(s):
     return (s or "").replace("I", "ı").replace("İ", "i").lower()
 
 
+AYLAR = r"(ocak|şubat|mart|nisan|mayıs|haziran|temmuz|ağustos|eylül|ekim|kasım|aralık)"
+TARIHLI = re.compile(
+    r"\b\d{1,2}\s*(-|–|ve)?\s*(\d{1,2}\s*)?" + AYLAR + r"\b"          # 15 mart, 12-18 haziran
+    r"|\b" + AYLAR + r"\s+(ayı|20\d\d)\b"                               # kasım ayı, mart 2025
+    r"|\b\d{1,2}[./]\d{1,2}[./](20)?\d\d\b"                             # 15.03.2025
+    r"|\b(pazartesi|salı|çarşamba|perşembe|cumartesi|cuma)\b|\bpazar (günü|akşamı|saat)"
+    r"|\bsaat\s*\d{1,2}[:.]\d{2}|\b\d{1,2}[:.]\d{2}['’]?(da|de|ta|te)\b"  # saat 20:00, 20.00'de
+    r"|zoom|canlı yayın|webinar|davetlisiniz|duyuru", re.I)
+
+
+def tarihli_icerik(caption):
+    """Belli bir tarihe/saate bagli duyuru (canli yayin, zoom, egitim tarihi) mi?"""
+    return bool(TARIHLI.search(kucuk(caption)))
+
+
 def sehir_etkinligi(caption):
     """Sehir toplantisi / seminer / kamp duyurusu veya haberi mi?"""
     c = kucuk(caption)
@@ -203,6 +218,7 @@ def main():
         m for m in sorted(kaynak, key=lambda x: x["timestamp"], reverse=True)
         if m.get("media_product_type") != "STORY"
         and not sehir_etkinligi(m.get("caption"))
+        and not tarihli_icerik(m.get("caption"))
         and m["id"] not in durum["gonderiler"]
         and m["id"] not in durum["atlananlar"]
         and anahtar(m.get("caption")) not in hedef_anahtarlar
