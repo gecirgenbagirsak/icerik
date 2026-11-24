@@ -47,7 +47,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: Beyin sisi nedir, bağırsakla ne ilgisi var?
 
 ## Flora, Candida, bağışıklık
-- K: Bağırsak florası neden bozulur: 6 tetikleyici (sık antibiyotik, şeker, stres, uykusuzluk, işlenmiş gıda, az lif) → sende hangisi? → DM
+- K: Bağırsak florası neden bozulur: 6 tetikleyici (sık antibiyotik, şeker, stres, uykusuzluk, işlenmiş gıda, az lif) → sende hangisi? → DM ✅ (24.11.2026 öğle, 4 tetikleyici)
 - R: Tatlı krizleri ve Candida ilişkisi
 - K: Sık hastalanıyorsan sebebi bağırsakta olabilir: bağışıklığın %70'i neden bağırsakta
 - R: Antibiyotikten sonra bağırsağına ne olur?
