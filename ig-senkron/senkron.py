@@ -67,8 +67,18 @@ def hepsini_cek(yol, tok, params):
     return sonuc
 
 
+IG_ILETISIM = ("📲 Siz de kendi e-ticaret işinizi başlatmak ve daha fazla bilgi almak için "
+               "benimle WhatsApp'tan iletişime geçebilirsiniz:\n👉 wa.me/905078784881")
+
+
+def iletisimsiz(caption):
+    """WhatsApp bloğunu çıkarır (kaynak-hedef eşleştirmesi bloktan etkilenmesin)."""
+    c = (caption or "").replace(IG_ILETISIM, "")
+    return "\n".join(l for l in c.split("\n") if "wa.me/905078784881" not in l and "WhatsApp'tan iletişime" not in l)
+
+
 def anahtar(caption):
-    c = (caption or "").split("#")[0]
+    c = iletisimsiz(caption).split("#")[0]
     c = unicodedata.normalize("NFC", c.lower())
     return re.sub(r"[^a-z0-9çğıöşü]", "", c)[:60]
 
@@ -86,7 +96,18 @@ def aciklama_uyarla(c):
         if k.startswith("#"):
             gorulen.add(k)
         parcalar.append(p)
-    return "".join(parcalar).strip()[:2200]
+    return iletisim_ekle_ig("".join(parcalar).strip())
+
+
+def iletisim_ekle_ig(c):
+    """WhatsApp bloğunu hashtag'lerden önce ekler; 2200 karakter sınırı için gövdeyi kısaltır."""
+    if "wa.me/905078784881" in c:
+        return c[:2200]
+    m = re.search(r"(\s*(?:#\S+\s*)+)$", c)
+    govde, etiket = (c[:m.start()], m.group(1).strip()) if m else (c, "")
+    yer = 2200 - len(IG_ILETISIM) - len(etiket) - 6
+    govde = govde.rstrip()[:max(0, yer)].rstrip()
+    return "\n\n".join(x for x in (govde, IG_ILETISIM, etiket) if x)
 
 
 SEHIRLER = """adana adıyaman afyon ağrı amasya ankara antalya artvin aydın balıkesir bilecik bingöl bitlis bolu

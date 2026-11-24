@@ -19,6 +19,9 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ozgun import iletisim_ekle   # WhatsApp iletişim bloğu (eski kuyruk kayıtlarına da uygulanır)
+
 KOK = os.path.dirname(os.path.abspath(__file__))
 KUYRUK = os.path.join(KOK, "kuyruk.json")
 DURUM = os.path.join(KOK, "durum.json")
@@ -69,7 +72,7 @@ def asset_indir(ad, hedef):
 
 def yukle(yt, video, ogr, kanal):
     govde = {
-        "snippet": {"title": ogr["baslik"][kanal], "description": ogr["aciklama"][kanal],
+        "snippet": {"title": ogr["baslik"][kanal], "description": iletisim_ekle(ogr["aciklama"][kanal]),
                     "tags": ogr["etiketler"][kanal], "categoryId": "27", "defaultLanguage": "tr"},
         "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False},
     }
