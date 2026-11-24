@@ -29,7 +29,9 @@ KLASOR = os.path.dirname(os.path.abspath(__file__))
 DURUM = os.path.join(KLASOR, "durum.json")
 GONDERI_PER_CALISMA = int(os.environ.get("GONDERI_SAYISI", "1"))
 KURU = os.environ.get("KURU", "").lower() == "true"
-ARALIK_SAAT = float(os.environ.get("ARALIK_SAAT", "3"))
+ARALIK_SAAT = float(os.environ.get("ARALIK_SAAT", "4"))   # gönderiler arası en az (saat)
+GUNLUK = int(os.environ.get("GUNLUK", "3"))                # günde en fazla gönderi
+PENCERE = (9, 22)                                          # TR saati: 09:00-22:00 arası paylaş
 
 TOK = json.loads(os.environ["IG_TOKENS"])
 
@@ -211,15 +213,27 @@ def main():
     hedef = hepsini_cek(f"{HEDEF_IG}/media", TOK["hedef"], {"fields": "id,caption,timestamp", "limit": 100})
     hedef_anahtarlar = {anahtar(h.get("caption")) for h in hedef if h.get("caption")}
 
-    # Gönderiler arasında en az ARALIK_SAAT olsun (GitHub gecikmesi / elle çalıştırma üst üste bindirmesin)
-    if hedef and not KURU:
+    # Zamanlama kararı (görev her saat uyanır; paylaşıp paylaşmamaya burada karar verilir):
+    #  - TR saatiyle PENCERE içinde olmalı, - bugün GUNLUK'ten az gönderi olmalı,
+    #  - son gönderiden en az ARALIK_SAAT geçmiş olmalı.
+    if not KURU:
         import datetime
-        son = max(h["timestamp"] for h in hedef)
-        son_dt = datetime.datetime.strptime(son[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=datetime.timezone.utc)
-        gecen = (datetime.datetime.now(datetime.timezone.utc) - son_dt).total_seconds() / 3600
-        if gecen < ARALIK_SAAT:
-            print(f"Son gönderiden {gecen:.1f} saat geçti (< {ARALIK_SAAT}); bu çalışma atlandı.")
+        tr = datetime.timezone(datetime.timedelta(hours=3))
+        simdi = datetime.datetime.now(tr)
+        if not (PENCERE[0] <= simdi.hour < PENCERE[1]):
+            print(f"Saat {simdi:%H:%M} paylaşım penceresi dışında; atlandı.")
             return
+        zamanlar = [datetime.datetime.strptime(h["timestamp"][:19], "%Y-%m-%dT%H:%M:%S")
+                    .replace(tzinfo=datetime.timezone.utc).astimezone(tr) for h in hedef]
+        bugun = sum(1 for z in zamanlar if z.date() == simdi.date())
+        if bugun >= GUNLUK:
+            print(f"Bugün {bugun} gönderi yapıldı (sınır {GUNLUK}); atlandı.")
+            return
+        if zamanlar:
+            gecen = (simdi - max(zamanlar)).total_seconds() / 3600
+            if gecen < ARALIK_SAAT:
+                print(f"Son gönderiden {gecen:.1f} saat geçti (< {ARALIK_SAAT}); atlandı.")
+                return
 
     # 1) Canli hikayeler kopyalanmiyor: kaynaktaki hikayeler cogunlukla sehir etkinligi
     #    ve aciklamasi olmadigi icin filtrelenemiyor (kullanici istegi, 24.11.2026).

@@ -27,6 +27,9 @@ REPO = os.environ.get("GITHUB_REPOSITORY", "gecirgenbagirsak/icerik")
 RELEASE = "yt-senkron"
 KANAL_LISTESI = ("gidersiz", "anahtar")
 GUNLUK_KANAL = int(os.environ.get("GUNLUK_KANAL", "2"))   # her kanala günde en fazla
+ARALIK_SAAT = float(os.environ.get("ARALIK_SAAT", "2.5"))  # iki yükleme arası en az (saat)
+PENCERE = (9, 22)                                          # TR saati
+ZORLA = os.environ.get("ZORLA", "").lower() == "true"     # sadece test için
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube.readonly"]
 
 
@@ -86,8 +89,22 @@ def main():
              if f"{o['id']}:{k}" not in durum["yuklenen"] and durum["hata"].get(f"{o['id']}:{k}", 0) < 3]
     isler.sort(key=lambda x: 0 if x[0].get("kaynak") == "magazanolsun" else 1)
     print(f"Bekleyen {len(isler)} yükleme")
+    # Zamanlama kararı (görev her saat uyanır): TR 09-22 arası, yüklemeler arası en az ARALIK_SAAT
+    import datetime
+    tr = datetime.timezone(datetime.timedelta(hours=3))
+    simdi = datetime.datetime.now(tr)
+    if not ZORLA:
+        if not (PENCERE[0] <= simdi.hour < PENCERE[1]):
+            print(f"Saat {simdi:%H:%M} yükleme penceresi dışında; atlandı.")
+            return
+        son = durum.get("son_yukleme")
+        if son:
+            gecen = (simdi - datetime.datetime.fromisoformat(son)).total_seconds() / 3600
+            if gecen < ARALIK_SAAT:
+                print(f"Son yüklemeden {gecen:.1f} saat geçti (< {ARALIK_SAAT}); atlandı.")
+                return
     # Kanal başına günlük kota: her kanala günde 2; bir kanalın kuyruğu boşsa hakkı diğerine geçer
-    bugun = time.strftime("%Y-%m-%d")
+    bugun = simdi.strftime("%Y-%m-%d")
     gunluk = durum.setdefault("gunluk", {}).setdefault(bugun, {})
     bekleyen_kanallar = {k for _, k in isler}
     toplam_hak = GUNLUK_KANAL * len(KANAL_LISTESI)
@@ -125,6 +142,7 @@ def main():
                     print(f"  kapak eklenemedi: {e}")
             durum["yuklenen"][anahtar] = vid
             gunluk[kanal] = gunluk.get(kanal, 0) + 1
+            durum["son_yukleme"] = datetime.datetime.now(tr).isoformat()
             yapilan += 1
         except HttpError as e:
             metin = str(e)
