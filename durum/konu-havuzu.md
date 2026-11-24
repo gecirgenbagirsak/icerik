@@ -11,7 +11,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: "Bir hafta kabız bir hafta ishal" — bağırsağın neden karar veremiyor? (BİLGİ §3) ✅ (19.11.2026 akşam)
 - R: "Sabah düz, akşam 6 aylık hamile gibi" (BİLGİ §4) ✅ (22.11.2026 akşam)
 - K: Demir eksikliğinin sana söylenmeyen 3 kilidi: emilim, iltihap, mide (BİLGİ §6) ✅ (19.11.2026 öğle)
-- R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6)
+- R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6) ✅ (24.11.2026 akşam)
 - R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7) ✅ (20.11.2026 akşam)
 - K: "Her kremi denedim, sivilcem geçmiyor": cilt neden bağırsağın aynası (BİLGİ §8) ✅ (21.11.2026 öğle)
 - R: Mutluluk maddesinin %90'ı nerede üretiliyor? (BİLGİ §7)
