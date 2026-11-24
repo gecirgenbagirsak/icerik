@@ -1,0 +1,41 @@
+name: YouTube senkron (saatlik)
+
+on:
+  schedule:
+    - cron: "47 * * * *"    # her saat; yukleme karari betikte
+  workflow_dispatch:
+    inputs:
+      adet:
+        description: "Bu çalışmada kaç video"
+        default: "1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: yt-senkron
+  cancel-in-progress: false
+
+jobs:
+  yukle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q google-api-python-client google-auth pillow
+      - name: Yükle
+        env:
+          YT_TOKENS: ${{ secrets.YT_TOKENS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADET: ${{ inputs.adet || '1' }}
+        run: python -u yt-senkron/yukle.py
+      - name: Durumu kaydet
+        if: always()
+        run: |
+          git config user.name "yt-senkron-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add yt-senkron/durum.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "yt senkron: durum" && git pull --rebase -q && git push)
