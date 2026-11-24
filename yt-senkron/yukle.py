@@ -20,6 +20,7 @@ from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
 KOK = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, KOK)
 KUYRUK = os.path.join(KOK, "kuyruk.json")
 DURUM = os.path.join(KOK, "durum.json")
 ADET = int(os.environ.get("ADET", "1"))
@@ -65,6 +66,21 @@ def asset_indir(ad, hedef):
                 break
             f.write(b)
     return True
+
+
+def kapak_hazirla(video, ogr, kanal):
+    """Premium kapağı videodan o an üretir; olmazsa arşivdeki eski kapağa döner."""
+    kapak = f"/tmp/{ogr['id']}_{kanal}.jpg"
+    try:
+        import ozgun
+        return ozgun.kapak(video, ogr["baslik"][kanal], kanal, kapak)
+    except Exception as e:                       # ffmpeg/opencv yoksa ya da kare alınamazsa
+        print(f"  premium kapak üretilemedi ({e}); arşivdeki kapak denenecek")
+    return kapak if asset_indir(f"{ogr['id']}_{kanal}.jpg", kapak) else None
+
+
+def kapak_ayarla(yt, vid, kapak):
+    yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(kapak, mimetype="image/jpeg")).execute()
 
 
 def yukle(yt, video, ogr, kanal):
@@ -134,10 +150,11 @@ def main():
             yt = youtube(kanal)
             vid = yukle(yt, video, ogr, kanal)
             print(f"[yüklendi] {anahtar} -> https://youtu.be/{vid}  {ogr['baslik'][kanal]}")
-            kapak = f"/tmp/{ogr['id']}_{kanal}.jpg"
-            if asset_indir(f"{ogr['id']}_{kanal}.jpg", kapak):
+            kapak = kapak_hazirla(video, ogr, kanal)
+            if kapak:
                 try:
-                    yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(kapak)).execute()
+                    kapak_ayarla(yt, vid, kapak)
+                    print("  premium kapak eklendi")
                 except HttpError as e:
                     print(f"  kapak eklenemedi: {e}")
             durum["yuklenen"][anahtar] = vid
