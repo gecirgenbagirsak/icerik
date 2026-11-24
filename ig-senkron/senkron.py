@@ -29,6 +29,7 @@ KLASOR = os.path.dirname(os.path.abspath(__file__))
 DURUM = os.path.join(KLASOR, "durum.json")
 GONDERI_PER_CALISMA = int(os.environ.get("GONDERI_SAYISI", "1"))
 KURU = os.environ.get("KURU", "").lower() == "true"
+ARALIK_SAAT = float(os.environ.get("ARALIK_SAAT", "3"))
 
 TOK = json.loads(os.environ["IG_TOKENS"])
 
@@ -207,8 +208,18 @@ def main():
 
     alanlar = "id,caption,media_type,media_product_type,media_url,thumbnail_url,timestamp,permalink,children{media_type,media_url}"
     kaynak = hepsini_cek(f"{KAYNAK_IG}/media", TOK["kaynak"], {"fields": alanlar, "limit": 50})
-    hedef = hepsini_cek(f"{HEDEF_IG}/media", TOK["hedef"], {"fields": "id,caption", "limit": 100})
+    hedef = hepsini_cek(f"{HEDEF_IG}/media", TOK["hedef"], {"fields": "id,caption,timestamp", "limit": 100})
     hedef_anahtarlar = {anahtar(h.get("caption")) for h in hedef if h.get("caption")}
+
+    # Gönderiler arasında en az ARALIK_SAAT olsun (GitHub gecikmesi / elle çalıştırma üst üste bindirmesin)
+    if hedef and not KURU:
+        import datetime
+        son = max(h["timestamp"] for h in hedef)
+        son_dt = datetime.datetime.strptime(son[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=datetime.timezone.utc)
+        gecen = (datetime.datetime.now(datetime.timezone.utc) - son_dt).total_seconds() / 3600
+        if gecen < ARALIK_SAAT:
+            print(f"Son gönderiden {gecen:.1f} saat geçti (< {ARALIK_SAAT}); bu çalışma atlandı.")
+            return
 
     # 1) Canli hikayeler kopyalanmiyor: kaynaktaki hikayeler cogunlukla sehir etkinligi
     #    ve aciklamasi olmadigi icin filtrelenemiyor (kullanici istegi, 24.11.2026).
