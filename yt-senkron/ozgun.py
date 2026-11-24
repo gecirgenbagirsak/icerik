@@ -95,8 +95,20 @@ def youtube_baslik(kaynak_baslik, kanal, short=False):
     ek = f" | {k['ad']}"
     if short:
         ek = " #shorts"
-    t = t[: 100 - len(ek)].rstrip(" ,.-") + ek
-    return t
+    return kisalt(t, 100 - len(ek)) + ek
+
+
+def kisalt(t, sinir):
+    """Başlığı sınıra sığdırır: önce ' | ' sonrası ek bölümleri atar, sonra kelime sınırından keser."""
+    if len(t) <= sinir:
+        return t
+    parca = [p.strip() for p in t.split("|") if p.strip()]
+    while len(parca) > 1 and len(" | ".join(parca)) > sinir:
+        parca.pop()
+    t = " | ".join(parca)
+    if len(t) > sinir:
+        t = t[:sinir].rsplit(" ", 1)[0]
+    return t.rstrip(" ,.-|:")
 
 
 def cumleler(aciklama):
