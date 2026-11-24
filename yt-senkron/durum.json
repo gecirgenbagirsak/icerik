@@ -2,13 +2,15 @@
  "yuklenen": {
   "fQTNL5byOkA:gidersiz": "QIq1fl3RRfU",
   "EkU6OFIXYVE:gidersiz": "pntiKfrmX84",
-  "_DUpHVOJio4:gidersiz": "DK6kJD7gCXU"
+  "_DUpHVOJio4:gidersiz": "DK6kJD7gCXU",
+  "_DUpHVOJio4:anahtar": "gchPwn_fqyc"
  },
  "hata": {},
  "gunluk": {
   "2026-11-24": {
-   "gidersiz": 3
+   "gidersiz": 3,
+   "anahtar": 1
   }
  },
- "son_yukleme": "2026-11-24T11:20:00+03:00"
+ "son_yukleme": "2026-11-24T14:40:34.782872+03:00"
 }
