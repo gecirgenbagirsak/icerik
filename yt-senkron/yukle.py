@@ -25,6 +25,8 @@ DURUM = os.path.join(KOK, "durum.json")
 ADET = int(os.environ.get("ADET", "1"))
 REPO = os.environ.get("GITHUB_REPOSITORY", "gecirgenbagirsak/icerik")
 RELEASE = "yt-senkron"
+KANAL_LISTESI = ("gidersiz", "anahtar")
+GUNLUK_KANAL = int(os.environ.get("GUNLUK_KANAL", "2"))   # her kanala günde en fazla
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube.readonly"]
 
 
@@ -84,10 +86,28 @@ def main():
              if f"{o['id']}:{k}" not in durum["yuklenen"] and durum["hata"].get(f"{o['id']}:{k}", 0) < 3]
     isler.sort(key=lambda x: 0 if x[0].get("kaynak") == "magazanolsun" else 1)
     print(f"Bekleyen {len(isler)} yükleme")
+    # Kanal başına günlük kota: her kanala günde 2; bir kanalın kuyruğu boşsa hakkı diğerine geçer
+    bugun = time.strftime("%Y-%m-%d")
+    gunluk = durum.setdefault("gunluk", {}).setdefault(bugun, {})
+    bekleyen_kanallar = {k for _, k in isler}
+    toplam_hak = GUNLUK_KANAL * len(KANAL_LISTESI)
+
+    def uygun_mu(kanal):
+        if sum(gunluk.values()) >= toplam_hak:
+            return False
+        if gunluk.get(kanal, 0) < GUNLUK_KANAL:
+            return True
+        # bu kanal kotasını doldurdu; diğer kanalın bekleyeni yoksa onun hakkını kullan
+        return not any(k in bekleyen_kanallar for k in KANAL_LISTESI if k != kanal and gunluk.get(k, 0) < GUNLUK_KANAL)
+
+    # sıra: bugün en az yükleme alan kanal önce
+    isler.sort(key=lambda x: (gunluk.get(x[1], 0), 0 if x[0].get("kaynak") == "magazanolsun" else 1))
     yapilan = 0
     for ogr, kanal in isler:
         if yapilan >= ADET:
             break
+        if not uygun_mu(kanal):
+            continue
         anahtar = f"{ogr['id']}:{kanal}"
         video = f"/tmp/{ogr['id']}.mp4"
         if not os.path.exists(video) and not asset_indir(f"{ogr['id']}.mp4", video):
@@ -104,6 +124,7 @@ def main():
                 except HttpError as e:
                     print(f"  kapak eklenemedi: {e}")
             durum["yuklenen"][anahtar] = vid
+            gunluk[kanal] = gunluk.get(kanal, 0) + 1
             yapilan += 1
         except HttpError as e:
             metin = str(e)
