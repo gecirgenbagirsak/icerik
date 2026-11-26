@@ -11,7 +11,9 @@
   "t445R0ySolE:gidersiz": "RFpssE-AIr0",
   "RbtjWtNXVh0:anahtar": "6XfHn4xkNVw",
   "IJwAH52ZPUw:gidersiz": "c6AJoDHQngU",
-  "2PKrwuUg0fc:anahtar": "_RxURpV3GP0"
+  "2PKrwuUg0fc:anahtar": "_RxURpV3GP0",
+  "TqH1egZb5dY:gidersiz": "JYLQyl6qkn8",
+  "9RpdQM2ZKVc:anahtar": "5DT4BpQMyU4"
  },
  "hata": {},
  "gunluk": {
@@ -24,13 +26,13 @@
    "anahtar": 2
   },
   "2026-11-26": {
-   "gidersiz": 2,
-   "anahtar": 2
+   "gidersiz": 3,
+   "anahtar": 3
   }
  },
- "son_yukleme": "2026-11-26T14:41:04.524995+03:00",
+ "son_yukleme": "2026-11-26T17:45:21.345299+03:00",
  "son_kanal": {
-  "gidersiz": "2026-11-26T14:40:54.446536+03:00",
-  "anahtar": "2026-11-26T14:41:04.524995+03:00"
+  "gidersiz": "2026-11-26T17:45:14.483608+03:00",
+  "anahtar": "2026-11-26T17:45:21.345299+03:00"
  }
 }
