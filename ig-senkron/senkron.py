@@ -96,7 +96,9 @@ def aciklama_uyarla(c):
         if k.startswith("#"):
             gorulen.add(k)
         parcalar.append(p)
-    return iletisim_ekle_ig("".join(parcalar).strip())
+    # 26.11 kullanıcı isteği: Instagram açıklamalarına WhatsApp bloğu EKLENMEZ (eski gönderilere dokunulmaz).
+    # iletisimsiz()/anahtar() eski gönderilerdeki bloğu ayıklamaya devam eder (çift paylaşım olmasın).
+    return "".join(parcalar).strip()[:2200]
 
 
 def iletisim_ekle_ig(c):
