@@ -14,7 +14,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - R: "Serum oldum, 3 ay sonra yine düştü" — neden? (BİLGİ §6) ✅ (24.11.2026 akşam)
 - R: "8 saat uyuyorum yorgun kalkıyorum" (BİLGİ §7) ✅ (20.11.2026 akşam)
 - K: "Her kremi denedim, sivilcem geçmiyor": cilt neden bağırsağın aynası (BİLGİ §8) ✅ (21.11.2026 öğle)
-- R: Mutluluk maddesinin %90'ı nerede üretiliyor? (BİLGİ §7)
+- R: Mutluluk maddesinin %90'ı nerede üretiliyor? (BİLGİ §7) ✅ (26.11.2026 akşam)
 - R: "Tahlillerim temiz ama şikâyetim geçmiyor" (BİLGİ §11) ✅ (21.11.2026 akşam)
 
 ## Demir eksikliği (en çok ilgi)
