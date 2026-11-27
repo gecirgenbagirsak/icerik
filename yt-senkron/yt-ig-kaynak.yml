@@ -1,0 +1,36 @@
+name: YouTube kaynak - Magazanolsun Instagram (3 saatte bir)
+
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: yt-senkron
+  cancel-in-progress: false
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - run: pip install -q pillow
+      - name: Instagram'dan yeni videolar
+        env:
+          IG_TOKENS: ${{ secrets.IG_TOKENS }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -u yt-senkron/ig_kaynak.py
+      - name: Kuyrugu kaydet
+        run: |
+          git config user.name "yt-senkron-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add yt-senkron/kuyruk.json yt-senkron/ig_islenen.json
+          git diff --cached --quiet || (git commit -m "yt senkron: Instagram kaynagi" && git pull --rebase -q && git push)

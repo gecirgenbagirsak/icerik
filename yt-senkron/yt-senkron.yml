@@ -1,11 +1,8 @@
-name: YouTube senkron (gidersiz / anahtarteslim)
+name: YouTube senkron (saatlik)
 
 on:
   schedule:
-    - cron: "0 6 * * *"     # 09:00 TR
-    - cron: "0 10 * * *"    # 13:00 TR
-    - cron: "0 14 * * *"    # 17:00 TR
-    - cron: "0 18 * * *"    # 21:00 TR
+    - cron: "47 * * * *"    # her saat; yukleme karari betikte
   workflow_dispatch:
     inputs:
       adet:
