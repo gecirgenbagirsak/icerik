@@ -50,7 +50,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - K: Bağırsak florası neden bozulur: 6 tetikleyici (sık antibiyotik, şeker, stres, uykusuzluk, işlenmiş gıda, az lif) → sende hangisi? → DM ✅ (24.11.2026 öğle, 4 tetikleyici)
 - R: Tatlı krizleri ve Candida ilişkisi
 - K: Sık hastalanıyorsan sebebi bağırsakta olabilir: bağışıklığın %70'i neden bağırsakta ✅ (26.11.2026 öğle)
-- R: Antibiyotikten sonra bağırsağına ne olur?
+- R: Antibiyotikten sonra bağırsağına ne olur? ✅ (27.11.2026 akşam)
 
 ## Bütirat ve bağırsak duvarı
 - R: Bütirat nedir? Bağırsak duvarının yakıtı — eksik olunca ne olur
