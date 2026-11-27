@@ -29,7 +29,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 - K: Bağırsağın yardım istiyor olabilir: 5 işaret ✅ (17.11.2026 kullanıldı)
 - R: Bağırsak duvarı neden geçirgen olur? ✅ (17.11.2026 YouTube'a yüklendi)
 - R: Akşam olunca karnın neden balon gibi şişiyor? ✅ (17.11.2026 YouTube)
-- K: Şişkinliğin 5 gizli sebebi (flora dengesizliği, hassaslaşmış bağırsak duvarı, sindirim enzimi yetersizliği, stres–bağırsak ekseni, gıda hassasiyeti)
+- K: Şişkinliğin 5 gizli sebebi (flora dengesizliği, hassaslaşmış bağırsak duvarı, sindirim enzimi yetersizliği, stres–bağırsak ekseni, gıda hassasiyeti) ✅ (27.11.2026 öğle, 4 sebep)
 - R: Kabızlık ile ishal arasında gidip gelmek ne anlatıyor?
 - K: "Her şeyi denedim ama geçmiyor": şikâyetlerin neden geri geldiği
 
