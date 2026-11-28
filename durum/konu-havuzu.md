@@ -54,7 +54,7 @@ Görev her çalıştığında yayin-gunlugu.json'da **son 30 günde kullanılmam
 
 ## Bütirat ve bağırsak duvarı
 - R: Bütirat nedir? Bağırsak duvarının yakıtı — eksik olunca ne olur
-- K: Bağırsak duvarı yıprandığında vücudun verdiği 5 sinyal
+- K: Bağırsak duvarı yıprandığında vücudun verdiği 5 sinyal ✅ (28.11.2026 öğle, 4 işaret)
 - R: Bağırsak duvarı neden kendini yenileyemez hale gelir?
 
 ## "Neden geçmiyor" serisi (satışa en yakın)
